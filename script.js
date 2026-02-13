@@ -48,19 +48,19 @@ function getSideloadLinks(sourceURL) {
     {
       name: 'AltStore',
       url: `altstore://source?url=${encoded}`,
-      icon: '🔷',
+      logo: 'img/altstore.png',
       className: 'altstore'
     },
     {
       name: 'SideStore',
       url: `sidestore://source?url=${encoded}`,
-      icon: '🟣',
+      logo: 'img/sidestore.png',
       className: 'sidestore'
     },
     {
       name: 'Feather',
       url: `feather://source/${sourceURL}`,
-      icon: '🪶',
+      logo: 'img/feather.png',
       className: 'feather'
     }
   ];
@@ -104,8 +104,8 @@ function renderSideloadButtons() {
   const links = getSideloadLinks(CONFIG.publicSourceURL);
 
   grid.innerHTML = links.map(link => `
-    <a href="${link.url}" class="sideload-btn ${link.className}" title="Open in ${link.name}">
-      <span class="btn-icon">${link.icon}</span>
+    <a href="${link.url}" class="sideload-btn liquid-glass ${link.className}" title="Open in ${link.name}">
+      <span class="btn-icon"><img src="${link.logo}" alt="${link.name}"></span>
       <span>Open in ${link.name}</span>
     </a>
   `).join('');
@@ -123,7 +123,7 @@ function renderAppCard(app) {
     : `<div class="app-icon-placeholder" style="background:${color}">${app.name.charAt(0)}</div>`;
 
   return `
-    <div class="app-card" data-bundle="${app.bundleIdentifier}" onclick="openAppDetail('${app.bundleIdentifier}')">
+    <div class="app-card liquid-glass" data-bundle="${app.bundleIdentifier}" onclick="openAppDetail('${app.bundleIdentifier}')">
       <div class="app-card-header">
         ${iconHTML}
         <div class="app-info">

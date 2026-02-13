@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* ===== CSS Custom Properties — Dark Theme (default) ===== */
+/* ===== CSS Custom Properties ===== */
 :root {
   /* Gradient palette: purple → pink → green */
   --gradient-1: #7c3aed;
@@ -11,49 +11,56 @@
   --accent-light: #c084fc;
   --accent-glow: rgba(168, 85, 247, 0.3);
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Liquid Glass shared */
+  --glass-blur: 24px;
+  --glass-saturate: 1.8;
 }
 
-/* Dark theme values */
+/* ===== Dark Theme ===== */
 [data-theme="dark"] {
-  --bg-primary: #09090b;
-  --bg-secondary: #18181b;
-  --bg-card: rgba(255, 255, 255, 0.04);
-  --bg-card-hover: rgba(255, 255, 255, 0.08);
-  --bg-glass: rgba(255, 255, 255, 0.06);
-  --border-glass: rgba(255, 255, 255, 0.1);
-  --text-primary: #fafafa;
+  --bg-primary: #050508;
+  --bg-secondary: #0f0f14;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg-hover: rgba(255, 255, 255, 0.08);
+  --glass-bg-strong: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --glass-highlight: rgba(255, 255, 255, 0.06);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+  --text-primary: #f4f4f5;
   --text-secondary: #a1a1aa;
   --text-muted: #52525b;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
-  --modal-bg: #18181b;
-  --nav-bg: rgba(9, 9, 11, 0.85);
-  --toast-bg: #27272a;
+  --modal-bg: rgba(15, 15, 20, 0.92);
+  --nav-bg: rgba(5, 5, 8, 0.7);
+  --toast-bg: rgba(30, 30, 40, 0.9);
+  --overlay-bg: rgba(0, 0, 0, 0.55);
 }
 
-/* Light theme values */
+/* ===== Light Theme ===== */
 [data-theme="light"] {
-  --bg-primary: #fafafa;
+  --bg-primary: #f8f8fc;
   --bg-secondary: #ffffff;
-  --bg-card: rgba(0, 0, 0, 0.03);
-  --bg-card-hover: rgba(0, 0, 0, 0.06);
-  --bg-glass: rgba(0, 0, 0, 0.03);
-  --border-glass: rgba(0, 0, 0, 0.08);
-  --text-primary: #18181b;
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-hover: rgba(255, 255, 255, 0.72);
+  --glass-bg-strong: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-border-hover: rgba(255, 255, 255, 0.85);
+  --glass-highlight: rgba(255, 255, 255, 0.8);
+  --glass-shadow: rgba(0, 0, 0, 0.06);
+  --text-primary: #0f0f14;
   --text-secondary: #52525b;
   --text-muted: #a1a1aa;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.1);
-  --modal-bg: #ffffff;
-  --nav-bg: rgba(250, 250, 250, 0.85);
-  --toast-bg: #ffffff;
+  --modal-bg: rgba(255, 255, 255, 0.88);
+  --nav-bg: rgba(248, 248, 252, 0.7);
+  --toast-bg: rgba(255, 255, 255, 0.9);
+  --overlay-bg: rgba(0, 0, 0, 0.3);
 }
 
 /* ===== Reset & Base ===== */
@@ -78,11 +85,31 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* ===== Liquid Glass Mixin (via class) ===== */
+.liquid-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 4px 24px -4px var(--glass-shadow);
+  transition: var(--transition);
+}
+
+.liquid-glass:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 8px 32px -4px var(--glass-shadow);
 }
 
 /* ===== Animated Background ===== */
-.bg-gradient {
+.bg-mesh {
   position: fixed;
   top: 0;
   left: 0;
@@ -90,20 +117,72 @@ body {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
-[data-theme="dark"] .bg-gradient {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124, 58, 237, 0.15), transparent),
-    radial-gradient(ellipse 50% 40% at 85% 50%, rgba(236, 72, 153, 0.08), transparent),
-    radial-gradient(ellipse 50% 40% at 15% 80%, rgba(16, 185, 129, 0.08), transparent);
+.bg-mesh .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: orbFloat 20s ease-in-out infinite;
 }
 
-[data-theme="light"] .bg-gradient {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124, 58, 237, 0.06), transparent),
-    radial-gradient(ellipse 50% 40% at 85% 50%, rgba(236, 72, 153, 0.04), transparent),
-    radial-gradient(ellipse 50% 40% at 15% 80%, rgba(16, 185, 129, 0.04), transparent);
+[data-theme="dark"] .bg-mesh .orb {
+  opacity: 0.25;
+}
+
+[data-theme="light"] .bg-mesh .orb {
+  opacity: 0.35;
+}
+
+.bg-mesh .orb:nth-child(1) {
+  width: 500px;
+  height: 500px;
+  background: var(--gradient-1);
+  top: -15%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.bg-mesh .orb:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  background: var(--gradient-3);
+  top: 30%;
+  right: -10%;
+  animation-delay: -7s;
+  animation-duration: 25s;
+}
+
+.bg-mesh .orb:nth-child(3) {
+  width: 350px;
+  height: 350px;
+  background: var(--gradient-4);
+  bottom: -10%;
+  left: -5%;
+  animation-delay: -14s;
+  animation-duration: 22s;
+}
+
+@keyframes orbFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(40px, -30px) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+
+  75% {
+    transform: translate(30px, 40px) scale(1.02);
+  }
 }
 
 .bg-grid {
@@ -118,15 +197,15 @@ body {
 
 [data-theme="dark"] .bg-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 [data-theme="light"] .bg-grid {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.018) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -146,15 +225,16 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 16px 0;
+  padding: 12px 0;
   transition: var(--transition);
 }
 
 .nav.scrolled {
   background: var(--nav-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-glass);
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 2px 20px -4px var(--glass-shadow);
 }
 
 .nav-inner {
@@ -177,59 +257,63 @@ body {
 }
 
 .nav-brand-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-sm);
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
   background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 17px;
+  box-shadow: 0 2px 12px rgba(168, 85, 247, 0.3);
 }
 
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .nav-link {
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  border-radius: 10px;
   text-decoration: none;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
-  transition: var(--transition);
+  transition: var(--transition-fast);
 }
 
 .nav-link:hover,
 .nav-link.active {
   color: var(--text-primary);
-  background: var(--bg-glass);
+  background: var(--glass-bg);
 }
 
-/* ===== Theme Toggle ===== */
+/* ===== Theme Toggle — Liquid Glass Pill ===== */
 .theme-toggle {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  border: 1px solid var(--glass-border);
   color: var(--text-secondary);
-  font-size: 18px;
+  font-size: 17px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: var(--transition);
-  flex-shrink: 0;
+  box-shadow: inset 0 1px 0 0 var(--glass-highlight);
 }
 
 .theme-toggle:hover {
-  background: var(--bg-card-hover);
+  background: var(--glass-bg-hover);
   color: var(--text-primary);
-  border-color: var(--accent);
+  border-color: var(--glass-border-hover);
+  transform: scale(1.08);
 }
 
 .theme-toggle .icon-sun,
@@ -247,7 +331,7 @@ body {
 
 /* ===== Hero Section ===== */
 .hero {
-  padding: 140px 0 60px;
+  padding: 150px 0 60px;
   text-align: center;
 }
 
@@ -255,14 +339,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 100px;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
-  color: var(--accent-light);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  color: var(--accent-light);
   animation: fadeInDown 0.6s ease;
 }
 
@@ -275,10 +357,11 @@ body {
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 16px;
+  line-height: 1.08;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3), var(--gradient-4));
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -288,14 +371,15 @@ body {
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  max-width: 500px;
-  margin: 0 auto 40px;
+  max-width: 460px;
+  margin: 0 auto 44px;
   animation: fadeInUp 0.6s ease 0.2s both;
+  line-height: 1.6;
 }
 
-/* ===== Sideload Buttons ===== */
+/* ===== Sideload Buttons — Liquid Glass ===== */
 .sideload-section {
   animation: fadeInUp 0.6s ease 0.3s both;
 }
@@ -303,10 +387,10 @@ body {
 .sideload-grid {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
-  max-width: 700px;
-  margin: 0 auto 20px;
+  max-width: 720px;
+  margin: 0 auto 22px;
 }
 
 .sideload-btn {
@@ -314,39 +398,58 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px 24px;
+  padding: 14px 26px;
   border-radius: var(--radius-md);
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
-  transition: var(--transition);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  min-width: 170px;
+  min-width: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specular top-edge highlight */
+.sideload-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
+  opacity: 0.8;
 }
 
 .sideload-btn:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--btn-accent, var(--accent));
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 12px 40px -8px var(--glass-shadow);
+}
+
+.sideload-btn:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 .sideload-btn .btn-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 7px;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
   flex-shrink: 0;
-  transition: var(--transition);
+  overflow: hidden;
+}
+
+.sideload-btn .btn-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
 }
 
 .sideload-btn.altstore {
@@ -362,19 +465,17 @@ body {
 }
 
 .sideload-btn:hover .btn-icon {
-  background: var(--btn-accent);
-  color: #fff;
-  border-radius: 7px;
+  box-shadow: 0 0 12px var(--btn-accent, var(--accent));
 }
 
 .copy-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: var(--radius-sm);
   background: transparent;
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--glass-border);
   color: var(--text-secondary);
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
@@ -385,6 +486,7 @@ body {
 .copy-btn:hover {
   color: var(--text-primary);
   border-color: var(--accent);
+  background: var(--glass-bg);
 }
 
 .copy-btn.copied {
@@ -405,6 +507,7 @@ body {
 .section-title {
   font-size: 1.5rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .section-count {
@@ -414,7 +517,7 @@ body {
   margin-left: 8px;
 }
 
-/* ===== Search Bar ===== */
+/* ===== Search Bar — Liquid Glass ===== */
 .search-wrapper {
   position: relative;
   max-width: 300px;
@@ -424,13 +527,16 @@ body {
   width: 100%;
   padding: 10px 16px 10px 40px;
   border-radius: var(--radius-sm);
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   outline: none;
   transition: var(--transition);
+  box-shadow: inset 0 1px 0 0 var(--glass-highlight);
 }
 
 .search-input::placeholder {
@@ -439,7 +545,9 @@ body {
 
 .search-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 0 0 3px var(--accent-glow);
 }
 
 .search-icon {
@@ -452,7 +560,7 @@ body {
   pointer-events: none;
 }
 
-/* ===== App Cards Grid ===== */
+/* ===== App Cards — Liquid Glass ===== */
 .apps-section {
   padding: 40px 0 80px;
 }
@@ -464,22 +572,31 @@ body {
 }
 
 .app-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
   padding: 20px;
   cursor: pointer;
-  transition: var(--transition);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   animation: fadeInUp 0.4s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specular shine on cards */
+.app-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
 }
 
 .app-card:hover {
-  background: var(--bg-card-hover);
-  border-color: rgba(168, 85, 247, 0.3);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  border-color: rgba(168, 85, 247, 0.25);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 16px 48px -8px var(--glass-shadow);
 }
 
 .app-card-header {
@@ -495,8 +612,8 @@ body {
   border-radius: var(--radius-md);
   object-fit: cover;
   flex-shrink: 0;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
 }
 
 .app-icon-placeholder {
@@ -529,15 +646,15 @@ body {
 .app-developer {
   font-size: 0.8rem;
   color: var(--text-secondary);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .app-version-badge {
   display: inline-block;
   padding: 2px 8px;
   border-radius: 100px;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   font-size: 0.7rem;
   color: var(--text-muted);
   font-weight: 500;
@@ -559,7 +676,7 @@ body {
   justify-content: space-between;
   margin-top: 14px;
   padding-top: 14px;
-  border-top: 1px solid var(--border-glass);
+  border-top: 1px solid var(--glass-border);
 }
 
 .app-size {
@@ -568,7 +685,7 @@ body {
 }
 
 .app-get-btn {
-  padding: 6px 18px;
+  padding: 6px 20px;
   border-radius: 100px;
   background: var(--accent);
   color: #fff;
@@ -578,23 +695,24 @@ body {
   border: none;
   cursor: pointer;
   transition: var(--transition);
+  box-shadow: 0 2px 12px var(--accent-glow);
 }
 
 .app-get-btn:hover {
-  background: var(--accent-light);
-  transform: scale(1.05);
+  transform: scale(1.06);
+  box-shadow: 0 4px 20px var(--accent-glow);
 }
 
-/* ===== Modal ===== */
+/* ===== Modal — Liquid Glass ===== */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: var(--overlay-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 200;
   display: flex;
   align-items: center;
@@ -615,13 +733,18 @@ body {
   max-width: 600px;
   max-height: 85vh;
   background: var(--modal-bg);
-  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(40px) saturate(1.8);
+  -webkit-backdrop-filter: blur(40px) saturate(1.8);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   overflow-y: auto;
   transform: translateY(20px) scale(0.95);
   transition: var(--transition);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 24px 80px -12px var(--glass-shadow);
   scrollbar-width: thin;
-  scrollbar-color: var(--border-glass) transparent;
+  scrollbar-color: var(--glass-border) transparent;
 }
 
 .modal-overlay.active .modal {
@@ -632,6 +755,8 @@ body {
   position: sticky;
   top: 0;
   background: var(--modal-bg);
+  backdrop-filter: blur(40px) saturate(1.8);
+  -webkit-backdrop-filter: blur(40px) saturate(1.8);
   padding: 24px 24px 0;
   z-index: 1;
 }
@@ -643,20 +768,21 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   color: var(--text-secondary);
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition);
+  transition: var(--transition-fast);
 }
 
 .modal-close:hover {
-  background: var(--bg-card-hover);
+  background: var(--glass-bg-hover);
   color: var(--text-primary);
+  transform: scale(1.08);
 }
 
 .modal-app-header {
@@ -671,8 +797,8 @@ body {
   height: 72px;
   border-radius: var(--radius-lg);
   object-fit: cover;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
 }
 
 .modal-app-icon-placeholder {
@@ -694,13 +820,14 @@ body {
 .modal-app-name {
   font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  letter-spacing: -0.01em;
 }
 
 .modal-app-developer {
   font-size: 0.9rem;
   color: var(--text-secondary);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .modal-app-version {
@@ -717,11 +844,11 @@ body {
 }
 
 .modal-section-title {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
   margin-bottom: 10px;
 }
 
@@ -739,13 +866,13 @@ body {
   overflow-x: auto;
   padding-bottom: 8px;
   scrollbar-width: thin;
-  scrollbar-color: var(--border-glass) transparent;
+  scrollbar-color: var(--glass-border) transparent;
 }
 
 .screenshot-img {
   height: 200px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--glass-border);
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -760,13 +887,14 @@ body {
 .version-item {
   padding: 12px 14px;
   border-radius: var(--radius-sm);
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
 }
 
 .version-item:first-child {
   border-color: var(--accent);
   border-left: 3px solid var(--accent);
+  background: var(--glass-bg-strong);
 }
 
 .version-item-header {
@@ -789,6 +917,7 @@ body {
 .version-desc {
   font-size: 0.8rem;
   color: var(--text-secondary);
+  white-space: pre-line;
 }
 
 .version-meta {
@@ -817,11 +946,12 @@ body {
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
+  box-shadow: 0 4px 20px var(--accent-glow);
 }
 
 .modal-download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px var(--accent-glow);
+  box-shadow: 0 8px 32px var(--accent-glow);
 }
 
 /* ===== Empty State ===== */
@@ -845,7 +975,7 @@ body {
 .footer {
   text-align: center;
   padding: 40px 0;
-  border-top: 1px solid var(--border-glass);
+  border-top: 1px solid var(--glass-border);
   color: var(--text-muted);
   font-size: 0.8rem;
 }
@@ -859,7 +989,7 @@ body {
   text-decoration: underline;
 }
 
-/* ===== Toast ===== */
+/* ===== Toast — Liquid Glass ===== */
 .toast {
   position: fixed;
   bottom: 30px;
@@ -868,15 +998,17 @@ body {
   padding: 12px 24px;
   border-radius: var(--radius-sm);
   background: var(--toast-bg);
-  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(28px) saturate(1.8);
+  -webkit-backdrop-filter: blur(28px) saturate(1.8);
+  border: 1px solid var(--glass-border);
   color: var(--text-primary);
   font-size: 0.85rem;
   font-weight: 500;
   z-index: 300;
   transition: var(--transition);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-lg);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 8px 32px -4px var(--glass-shadow);
 }
 
 .toast.show {
@@ -887,7 +1019,7 @@ body {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
 
   to {
@@ -899,7 +1031,7 @@ body {
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-12px);
   }
 
   to {
@@ -916,7 +1048,7 @@ body {
   }
 
   50% {
-    opacity: 0.4;
+    opacity: 0.35;
   }
 }
 
@@ -960,7 +1092,7 @@ body {
   }
 
   .modal {
-    max-height: 90vh;
+    max-height: 92vh;
     border-radius: var(--radius-lg);
   }
 
@@ -971,7 +1103,7 @@ body {
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .hero-subtitle {
