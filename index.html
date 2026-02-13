@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phus's Repo</title>
+  <title>miyukowo's repo</title>
   <meta name="description" content="A curated collection of sideloaded apps for AltStore, SideStore, and Feather.">
-  <meta name="theme-color" content="#0a0a1a">
-  <meta property="og:title" content="Phus's Repo">
+  <meta name="theme-color" content="#09090b">
+  <meta property="og:title" content="miyukowo's repo">
   <meta property="og:description" content="A curated collection of sideloaded apps for AltStore, SideStore, and Feather.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
   <link rel="stylesheet" href="style.css">
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function() {
+      var theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
 
@@ -23,11 +31,15 @@
     <div class="nav-inner">
       <a href="#" class="nav-brand">
         <div class="nav-brand-icon">📦</div>
-        <span id="nav-brand-name">Phus's Repo</span>
+        <span id="nav-brand-name">miyukowo's repo</span>
       </a>
-      <div class="nav-links">
+      <div class="nav-right">
         <a href="#apps" class="nav-link active">Apps</a>
         <a href="apps.json" class="nav-link" target="_blank">Source JSON</a>
+        <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark theme">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -39,13 +51,13 @@
         <span class="dot"></span>
         AltStore / SideStore Source
       </div>
-      <h1 id="hero-title">Phus's Repo</h1>
+      <h1 id="hero-title">miyukowo's repo</h1>
       <p class="hero-subtitle" id="hero-subtitle">A curated collection of sideloaded apps. Add this source to your favorite sideloading app.</p>
 
       <!-- Sideloading Buttons -->
       <div class="sideload-section">
         <div class="sideload-grid" id="sideload-grid">
-          <!-- Buttons will be rendered by JS -->
+          <!-- Buttons rendered by JS -->
         </div>
         <div style="text-align: center; margin-top: 12px;">
           <button class="copy-btn" id="copy-btn">📋 Copy Source URL</button>
@@ -68,7 +80,6 @@
         </div>
       </div>
       <div class="apps-grid" id="apps-grid">
-        <!-- App cards will be rendered by JS -->
         <div class="empty-state" style="grid-column: 1 / -1">
           <div class="empty-state-icon">⏳</div>
           <div class="empty-state-text">Loading apps...</div>
@@ -88,6 +99,7 @@
           <div class="modal-app-info">
             <div class="modal-app-name" id="modal-app-name"></div>
             <div class="modal-app-developer" id="modal-app-developer"></div>
+            <div class="modal-app-version" id="modal-app-version"></div>
           </div>
         </div>
       </div>
@@ -104,7 +116,7 @@
           <div class="modal-description" id="modal-description"></div>
         </div>
 
-        <!-- Versions -->
+        <!-- Versions / Changelog -->
         <div class="modal-section">
           <div class="modal-section-title">Version History</div>
           <div class="version-list" id="modal-versions"></div>
@@ -121,7 +133,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>Made with ❤️ &mdash; Add this source to <a href="#">AltStore</a>, <a href="#">SideStore</a>, or <a href="#">Feather</a></p>
+      <p>Made with ❤️ by miyukowo</p>
     </div>
   </footer>
 

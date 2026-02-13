@@ -1,14 +1,45 @@
 // ===== Configuration =====
 const CONFIG = {
-  // Update this to your actual apps.json URL once deployed
   sourceURL: 'apps.json',
-  // The public URL where your apps.json will be hosted
   get publicSourceURL() {
-    // Try to detect the base URL from the current page
     const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
     return `${base}/apps.json`;
   }
 };
+
+// ===== Theme Management =====
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function getStoredTheme() {
+  return localStorage.getItem('theme');
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+}
+
+function initTheme() {
+  const stored = getStoredTheme();
+  const theme = stored || getSystemTheme();
+  applyTheme(theme);
+
+  // Listen for system theme changes (only when no manual override)
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!getStoredTheme()) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem('theme', next);
+  showToast(`Switched to ${next} mode`);
+}
 
 // ===== Sideloading URL Schemes =====
 function getSideloadLinks(sourceURL) {
@@ -31,30 +62,6 @@ function getSideloadLinks(sourceURL) {
       url: `feather://source/${sourceURL}`,
       icon: '🪶',
       className: 'feather'
-    },
-    {
-      name: 'TrollApps',
-      url: `apple-magnifier://install?url=${encoded}`,
-      icon: '🧌',
-      className: 'trollapps'
-    },
-    {
-      name: 'ESign',
-      url: `esign://addsource?url=${encoded}`,
-      icon: '✍️',
-      className: 'esign'
-    },
-    {
-      name: 'GBox',
-      url: `gbox://import/${sourceURL}`,
-      icon: '📦',
-      className: 'gbox'
-    },
-    {
-      name: 'Scarlet',
-      url: `scarlet://repo/${sourceURL}`,
-      icon: '🔴',
-      className: 'scarlet'
     }
   ];
 }
@@ -81,7 +88,7 @@ function formatDate(dateStr) {
 }
 
 function getAppColor(app) {
-  return app.tintColor ? `#${app.tintColor.replace('#', '')}` : '#6C5CE7';
+  return app.tintColor ? `#${app.tintColor.replace('#', '')}` : '#a855f7';
 }
 
 function showToast(message) {
@@ -99,7 +106,7 @@ function renderSideloadButtons() {
   grid.innerHTML = links.map(link => `
     <a href="${link.url}" class="sideload-btn ${link.className}" title="Open in ${link.name}">
       <span class="btn-icon">${link.icon}</span>
-      <span>${link.name}</span>
+      <span>Open in ${link.name}</span>
     </a>
   `).join('');
 }
@@ -193,6 +200,8 @@ function openAppDetail(bundleId) {
 
   document.getElementById('modal-app-name').textContent = app.name;
   document.getElementById('modal-app-developer').textContent = app.developerName;
+  document.getElementById('modal-app-version').textContent =
+    latestVersion ? `Version ${latestVersion.version} • ${formatBytes(latestVersion.size)}` : '';
 
   // Description
   document.getElementById('modal-description').textContent = app.localizedDescription || '';
@@ -209,13 +218,13 @@ function openAppDetail(bundleId) {
     screenshotsSection.style.display = 'none';
   }
 
-  // Versions
+  // Versions / Changelog
   const versionsContainer = document.getElementById('modal-versions');
   if (app.versions && app.versions.length > 0) {
-    versionsContainer.innerHTML = app.versions.map(v => `
+    versionsContainer.innerHTML = app.versions.map((v, i) => `
       <div class="version-item">
         <div class="version-item-header">
-          <span class="version-number">v${v.version}</span>
+          <span class="version-number">v${v.version}${i === 0 ? ' (Latest)' : ''}</span>
           <span class="version-date">${formatDate(v.date)}</span>
         </div>
         ${v.localizedDescription ? `<div class="version-desc">${v.localizedDescription}</div>` : ''}
@@ -231,7 +240,6 @@ function openAppDetail(bundleId) {
   const downloadBtn = document.getElementById('modal-download-btn');
   if (latestVersion && latestVersion.downloadURL) {
     downloadBtn.href = latestVersion.downloadURL;
-    downloadBtn.style.background = `linear-gradient(135deg, ${color}, ${color}cc)`;
     downloadBtn.style.display = 'flex';
   } else {
     downloadBtn.style.display = 'none';
@@ -261,7 +269,6 @@ function copySourceURL() {
       btn.innerHTML = '📋 Copy Source URL';
     }, 2000);
   }).catch(() => {
-    // Fallback
     const textarea = document.createElement('textarea');
     textarea.value = url;
     document.body.appendChild(textarea);
@@ -301,18 +308,23 @@ function initNavScroll() {
 
 // ===== Initialize =====
 async function init() {
+  // Theme MUST be initialized before anything else to prevent flash
+  initTheme();
   initNavScroll();
   renderSideloadButtons();
 
-  // Set up copy button
+  // Theme toggle
+  document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+  // Copy button
   document.getElementById('copy-btn').addEventListener('click', copySourceURL);
 
-  // Set up search
+  // Search
   document.getElementById('search-input').addEventListener('input', (e) => {
     handleSearch(e.target.value);
   });
 
-  // Set up modal close
+  // Modal close
   document.getElementById('modal-overlay').addEventListener('click', (e) => {
     if (e.target === e.currentTarget) closeModal();
   });
@@ -327,9 +339,10 @@ async function init() {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     sourceData = await response.json();
 
-    // Update page title and hero
+    // Update page content from JSON
     if (sourceData.name) {
       document.getElementById('hero-title').textContent = sourceData.name;
+      document.getElementById('nav-brand-name').textContent = sourceData.name;
       document.title = sourceData.name;
     }
     if (sourceData.description || sourceData.subtitle) {
@@ -348,4 +361,6 @@ async function init() {
   }
 }
 
+// Init theme immediately (before DOMContentLoaded) to prevent flash
+initTheme();
 document.addEventListener('DOMContentLoaded', init);
