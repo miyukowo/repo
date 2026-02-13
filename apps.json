@@ -17,7 +17,7 @@
       "bundleIdentifier": "com.google.ios.youtube",
       "developerName": "dvntm",
       "subtitle": "YouTube Plus with additional tweaks",
-      "localizedDescription": "This version contains YouTube Plus, YouPiP, YTUHD, Return YouTube Dislikes and Open in Safari extension\n\nFeatures:\n- Download videos, audio (including audio track selection), thumbnails, posts, and profile pictures\n- Copy video, comment, and post information\n- Interface customization: Remove feed elements, reorder tabs, enable OLED mode, and use Shorts-only mode\n- Player settings: Gestures, default quality, preferred audio track\n- Save, Load and Restore settings. Clear cache once or automatically on app startup\n- Built-in SponsorBlock\n- And much, much more\n\nYouTube Plus preferences can be found in the YouTube settings",
+      "localizedDescription": "This version contains YouTube Plus, YouPiP, YTUHD, Return YouTube Dislikes and Open in Safari extension\n\nFeatures:\n- Download videos, audio (including audio track selection), thumbnails, posts, and profile pictures\n- Copy video, comment, and post information\n- Interface customization: Remove feed elements, reorder tabs, enable OLED mode, and as use Shorts-only mode\n- Player settings: Gestures, default quality, preferred audio track\n- Save, Load and Restore settings. Clear cache once or automatically on app startup\n- Built-in SponsorBlock\n- And much, much more\n\nYouTube Plus preferences can be found in the YouTube settings",
       "iconURL": "https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/icon.png",
       "tintColor": "E36678",
       "screenshotURLs": [
@@ -52,6 +52,7 @@
           "com.apple.developer.networking.multicast",
           "com.apple.developer.networking.wifi-info",
           "com.apple.developer.siri",
+          "com.apple.developer.storekit.request-data",
           "com.apple.developer.usernotifications.communication",
           "com.apple.developer.usernotifications.time-sensitive",
           "com.apple.security.application-groups",
@@ -59,14 +60,14 @@
         ],
         "privacy": {
           "NSCameraUsageDescription": "This lets you create videos using the app.",
-          "NSMicrophoneUsageDescription": "This lets you include audio with your videos and search using your voice.",
-          "NSContactsUsageDescription": "Your contacts will be sent to YouTube servers to help you find friends to share videos with.",
-          "NSLocationWhenInUseUsageDescription": "Makes it easier for you to attach location information to your videos and live streams.",
-          "NSAppleMusicUsageDescription": "This lets you add your own audio files to your videos.",
+          "NSUserTrackingUsageDescription": "To personalize ads and provide ad measurement, YouTube will link activity from this app with activity from non-Google apps and websites.",
           "NSBluetoothPeripheralUsageDescription": "YouTube needs bluetooth access to scan for nearby Cast devices.",
           "NSLocalNetworkUsageDescription": "Access to your network allows YouTube to discover and connect to devices such as your TV.",
-          "NSUserTrackingUsageDescription": "To personalize ads and provide ad measurement, YouTube will link activity from this app with activity from non-Google apps and websites.",
-          "NSPhotoLibraryUsageDescription": "This allows you to save videos and photos to your library."
+          "NSAppleMusicUsageDescription": "This lets you add your own audio files to your videos.",
+          "NSMicrophoneUsageDescription": "This lets you include audio with your videos and search using your voice.",
+          "NSLocationWhenInUseUsageDescription": "Makes it easier for you to attach location information to your videos and live streams and allows for features such as improved recommendations and ads.",
+          "NSContactsUsageDescription": "Your contacts will be sent to YouTube servers to help you find friends to share videos with.",
+          "NSPhotoLibraryUsageDescription": "This lets you upload media you've already created."
         }
       }
     },
@@ -94,7 +95,32 @@
           "downloadURL": "https://github.com/dvntm0/AltStore/releases/download/0.0.1/ytmu_7.33.2.ipa",
           "localizedDescription": "YouTube Music Ultimate v2.3.1\n\n- Fixed downloads tab not working\n- Fixed local network permissions"
         }
-      ]
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "application-identifier",
+          "aps-environment",
+          "com.apple.developer.associated-domains",
+          "com.apple.developer.carplay-audio",
+          "com.apple.developer.coremedia.allow-alternate-video-decoder-selection",
+          "com.apple.developer.mediasetup",
+          "com.apple.developer.networking.multicast",
+          "com.apple.developer.networking.wifi-info",
+          "com.apple.developer.siri",
+          "com.apple.security.application-groups",
+          "keychain-access-groups"
+        ],
+        "privacy": {
+          "NSBluetoothAlwaysUsageDescription": "YouTube Music uses Bluetooth to locate and connect to Chromecast and other devices.",
+          "NSCameraUsageDescription": "To take a profile picture, allow YouTube Music to access your camera.",
+          "NSBluetoothPeripheralUsageDescription": "YouTube Music uses Bluetooth to locate and connect to Chromecast and other devices.",
+          "NSPhotoLibraryAddUsageDescription": "To save images, allow YouTube Music to access your photo library.",
+          "NSLocalNetworkUsageDescription": "Access to your network allows YouTube Music to discover and connect to devices such as your TV.",
+          "NSMicrophoneUsageDescription": "This lets you include audio with your videos.",
+          "NSContactsUsageDescription": "This will allow you to invite your family into your membership plan.",
+          "NSPhotoLibraryUsageDescription": "To choose a profile picture, allow YouTube Music to access your photos."
+        }
+      }
     },
     {
       "name": "Infuse Plus",
@@ -121,7 +147,33 @@
           "downloadURL": "https://github.com/dvntm0/AltStore/releases/download/0.0.1/infp_2.4.1+8.2.4.ipa",
           "localizedDescription": "Infuse Plus v2.4.1\n\n- Removed vibrancy effect of player toast, now toast follows system theme\n- Added option to automatically clean Infuse trash folder"
         }
-      ]
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "application-identifier",
+          "aps-environment",
+          "com.apple.developer.icloud-container-environment",
+          "com.apple.developer.icloud-container-identifiers",
+          "com.apple.developer.icloud-services",
+          "com.apple.developer.networking.multicast",
+          "com.apple.developer.networking.wifi-info",
+          "com.apple.developer.team-identifier",
+          "com.apple.developer.ubiquity-container-identifiers",
+          "com.apple.developer.ubiquity-kvstore-identifier",
+          "com.apple.developer.user-fonts",
+          "com.apple.security.application-groups"
+        ],
+        "privacy": {
+          "NSBluetoothAlwaysUsageDescription": "Used to discover nearby Cast devices",
+          "NSCameraUsageDescription": "Used for scanning QR codes",
+          "NSBluetoothPeripheralUsageDescription": "Used for streaming media to external devices",
+          "NSPhotoLibraryAddUsageDescription": "Used for saving QR code",
+          "NSLocalNetworkUsageDescription": "Used to discover network shares and Google Cast devices in your local network",
+          "NSAppleMusicUsageDescription": "Please allow access in order to show iTunes videos.",
+          "NSMicrophoneUsageDescription": "Used for pairing with external devices",
+          "NSFaceIDUsageDescription": "Used for unlocking your device when restrictions are enabled"
+        }
+      }
     },
     {
       "name": "Glow for Facebook",
@@ -148,7 +200,48 @@
           "downloadURL": "https://github.com/dvntm0/AltStore/releases/download/0.0.1/glow_1.3.1+519.0.ipa",
           "localizedDescription": "Glow v1.3.1\n- Faster video re-encoding by improved audio processing\n- Added support for Turkish language"
         }
-      ]
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "application-identifier",
+          "aps-environment",
+          "com.apple.accounts.facebook.defaultaccess",
+          "com.apple.developer.associated-domains",
+          "com.apple.developer.avfoundation.multitasking-camera-access",
+          "com.apple.developer.icloud-container-identifiers",
+          "com.apple.developer.icloud-services",
+          "com.apple.developer.networking.HotspotConfiguration",
+          "com.apple.developer.networking.multicast",
+          "com.apple.developer.networking.wifi-info",
+          "com.apple.developer.siri",
+          "com.apple.developer.storekit.request-data",
+          "com.apple.developer.team-identifier",
+          "com.apple.developer.ubiquity-container-identifiers",
+          "com.apple.developer.ubiquity-kvstore-identifier",
+          "com.apple.developer.usernotifications.communication",
+          "com.apple.developer.usernotifications.time-sensitive",
+          "com.apple.security.application-groups",
+          "keychain-access-groups"
+        ],
+        "privacy": {
+          "NSBluetoothAlwaysUsageDescription": "Facebook uses Bluetooth so you can do things like find and connect to devices and cast videos to TV.",
+          "NSSiriUsageDescription": "This will let Siri help you look for photos on Facebook",
+          "NSCameraUsageDescription": "Facebook uses access to your camera to do things like help you take and share photos, record videos, and use visual effects.\n\nYou can always change this in your device settings.",
+          "NSUserTrackingUsageDescription": "This allows Facebook to provide you with a better ads experience.",
+          "NSBluetoothPeripheralUsageDescription": "Facebook uses Bluetooth so you can do things like find and connect to devices and cast videos to TV.",
+          "NSLocalNetworkUsageDescription": "Facebook uses your local network so you can do things like find and connect to devices and cast videos to TV.",
+          "NSMotionUsageDescription": "Facebook uses this to provide more relevant and personalized experiences.",
+          "NSPhotoLibraryAddUsageDescription": "Facebook uses access to your photos to do things like help you save images to your device, share and apply visual effects to your photos and videos, and to suggest photos and videos to share.",
+          "NSAppleMusicUsageDescription": "Facebook uses access to your media library to do things like help you play music and other audio from your device, and to save audio to your device.",
+          "NSCalendarsUsageDescription": "This will let Facebook sync events you're hosting or attending to your calendar.",
+          "NSMicrophoneUsageDescription": "Facebook uses access to your microphone to do things like help you record audio, identify songs, search with your voice and use audio effects.\n\nYou can always change this in your device settings.",
+          "NSLocationWhenInUseUsageDescription": "Facebook uses this to provide more relevant and personalized experiences, like helping you check-in, find local events and get better ads.",
+          "NSFaceIDUsageDescription": "Enable Face ID for quick and secure authentication on Facebook.",
+          "NSCalendarsFullAccessUsageDescription": "This will let Facebook sync events you're hosting or attending to your calendar.",
+          "NSContactsUsageDescription": "Allowing access to your address book helps you see the contacts you can choose to add and helps us provide a better service.",
+          "NSPhotoLibraryUsageDescription": "Facebook uses access to your photos to do things like help you share and apply visual effects to your photos and videos, and to suggest photos and videos to share."
+        }
+      }
     },
     {
       "name": "Flow for Messenger",
@@ -172,16 +265,53 @@
           "downloadURL": "https://github.com/dvntm0/AltStore/releases/download/0.0.1/flow_1.0+511.0.ipa",
           "localizedDescription": "- Initial release"
         }
-      ]
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "application-identifier",
+          "aps-environment",
+          "com.apple.developer.associated-domains",
+          "com.apple.developer.avfoundation.multitasking-camera-access",
+          "com.apple.developer.icloud-container-environment",
+          "com.apple.developer.icloud-container-identifiers",
+          "com.apple.developer.icloud-services",
+          "com.apple.developer.siri",
+          "com.apple.developer.team-identifier",
+          "com.apple.developer.ubiquity-container-identifiers",
+          "com.apple.developer.ubiquity-kvstore-identifier",
+          "com.apple.developer.usernotifications.communication",
+          "com.apple.security.application-groups",
+          "keychain-access-groups"
+        ],
+        "privacy": {
+          "NSBluetoothAlwaysUsageDescription": " This makes some features work with bluetooth accessories.",
+          "NSLocationAlwaysUsageDescription": "This makes some features work, enables location sharing with friends, and more.",
+          "NSSiriUsageDescription": "This lets you use Siri to do things like make calls and read messages.",
+          "NSCameraUsageDescription": "Messenger uses your device’s camera so you can do things like take photos, record and stream videos, make video calls, and create and use filters and effects.",
+          "NSBluetoothPeripheralUsageDescription": "This makes some features work with bluetooth accessories.",
+          "NSPhotoLibraryAddUsageDescription": "This lets you do things like save to your camera roll and enables other features for photos and videos.",
+          "NSAppleMusicUsageDescription": "This lets you play Apple Music tracks, add tracks to your music library, and more.",
+          "NSSpeechRecognitionUsageDescription": "Messenger will use speech recognition to generate captions as people speak.",
+          "NSLocationUsageDescription": "Messenger uses this to provide more relevant and personalized experiences, like live location sharing and suggesting local places.",
+          "NSCalendarsUsageDescription": "This will let Messenger sync events you're hosting or attending to your calendar.",
+          "NSMicrophoneUsageDescription": "Messenger uses your device’s microphone so you can do things like record video with sound, make voice and video calls, and create voice messages.",
+          "NSLocationWhenInUseUsageDescription": "Messenger uses this to provide more relevant and personalized experiences, like live location sharing and suggesting local places.",
+          "NSCalendarsWriteOnlyAccessUsageDescription": "This will let Messenger sync events you're hosting or attending to your calendar.",
+          "NSFaceIDUsageDescription": "Messenger uses Face ID to unlock the app.",
+          "NSLocationAlwaysAndWhenInUseUsageDescription": "This makes some features work, enables location sharing with friends, and more.",
+          "NSContactsUsageDescription": "Allowing access to your address book helps you see the contacts you can choose to add and helps us provide a better service.",
+          "NSPhotoLibraryUsageDescription": "Messenger uses your device’s photo library from your camera roll so you can do things like share photos and videos."
+        }
+      }
     },
     {
       "name": "YTLitePlus",
       "bundleIdentifier": "com.google.ios.youtube.ytliteplus",
       "developerName": "Various Developers",
       "subtitle": "YTLite with more features!",
-      "localizedDescription": "YTLitePlus is an enhanced Youtube app that offers a superior Youtube experience, combining YTLite (by @dayanch96) with numerous other tweaks:\n\n• YTLite\n• YTUHD\n• YouPiP\n• YTABConfig\n• YouMute\n• DontEatMyContent\n• Return YouTube Dislikes\n• iSponsorBlock\n• YouRememberCaption\n• YTNoTracking\n• YTUnShorts\n• YTNoCheckLocalNetwork\n• BigYTMiniPlayer\n• YTSpeed\n• YTHoldForSpeed\n• YTVideoOverlay\n• YouQuality\n• YTNoModernUI\n• OLEDDarkmode\n• OLDDarkmode\n• LowContrastMode\n• YTNoSuggestedVideo",
+      "localizedDescription": "YTLite with more features!\n\nYTLitePlus is an enhanced Youtube app that offers a superior Youtube experience, combining YTLite (by @dayanch96) with numerous other tweaks :\n\n• YTLite\n• YTUHD\n• YouPiP\n• YTABConfig\n• YouMute\n• DontEatMyContent\n• Return YouTube Dislikes\n• iSponsorBlock\n• YouRememberCaption\n• YTNoTracking\n• YTUnShorts\n• YTNoCheckLocalNetwork\n• BigYTMiniPlayer\n• YTSpeed\n• YTHoldForSpeed\n• YTVideoOverlay\n• YouQuality\n• YTNoModernUI\n• OLEDDarkmode\n• OLDDarkmode\n• LowContrastMode\n• YTNoSuggestedVideo\n\nCredit\n\n@Balackburn, @bhackel, @Deci8BelioS, @matt911, @arichornloverALT, @Macleykun, @AlexInABox, @SKEIDs, @VictorxD70, @Glenta, @zSaaiq, @MrAlucardDante, @gototheskinny, @asdfzxcvbn, @dayanch96, @ssuesskind, @MiRO92, @qnblackcat, @PoomSmart, @level3tjg, @BandarHL, @Galactic-Dev, @julioverne, @hbang, @Lyvendia, @therealFoxster, @ichitaso, @AhmedBafkir, @CokePokes, @ISnackable",
       "iconURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/Youtube_logo-512.png",
-      "tintColor": "E22A41",
+      "tintColor": "e22a41",
       "screenshotURLs": [
         "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/1.png",
         "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/2.png",
@@ -197,59 +327,885 @@
         {
           "version": "19.34.2",
           "date": "2024-09-03",
-          "size": 111020044,
+          "localizedDescription": "Current YouTube IPA: \"19.34.2\"  \r\nCurrent YTLite Version: \"5.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 15.0\" or later\r\n\r\nRELEASE 19.34.2•5.0.1: (2024•09•03)\r\n\r\n• Updated Youtube from \"19.32.6\" to \"19.34.2\"\r\n• Updated YTLite from \"4.0.1\" to \"5.0.1\"\r\n\r\nIssues in this Release:\r\n• Touches will not work while bypassing startup popup\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n\r\nCatbox\r\n\"z8jg5n.ipa\"",
           "downloadURL": "https://files.catbox.moe/z8jg5n.ipa",
-          "localizedDescription": "RELEASE 19.34.2•5.0.1: (2024‒09‒03)\n\n• Updated Youtube from \"19.32.6\" to \"19.34.2\"\n• Updated YTLite from \"4.0.1\" to \"5.0.1\"\n\nIssues in this Release:\n• Touches will not work while bypassing startup popup\n• LowContrastMode does not work (Compatible only with YouTube v17.33.2•v17.38.10)"
+          "size": 111020044
+        },
+        {
+          "version": "19.32.6",
+          "date": "2024-08-14",
+          "localizedDescription": "Current YouTube IPA: \"19.32.6\"  \r\nCurrent YTLite Version: \"4.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 15.0\" or later\r\n\r\nRELEASE 19.32.6•4.0.1: (2024•08•14)\r\n\r\n• Updated Youtube from \"19.29.1\" to \"19.32.6\"\r\n\r\nNew Features\r\n• Added YouTimeStamp (@arichornloverALT)\r\n• Added \"Copy Settings\" and \"Paste Settings\" (@arichornlover)\r\n• Add reporting option (@bhackel)\r\n• Live Chat OLED dark mode (@bhackel)\r\n• Add Hide Speed Toast (@bhackel)\r\n\r\nBug Fixes\r\n• Fix building on iOS 14 (@bhackel) [278](https://github.com/YTLitePlus/YTLitePlus/pull/278)\r\n• Fix dylib injection issue (@bhackel)\r\n• Fix YouTube Extensions bug (@bhackel)\r\n• Fix delete workflows (@bhackel)\r\n• Fix localization and copy/paste switch (@bhackel)\r\n• Fix LowContrastMode description (@arichornlover)\r\n• Fix build error (@bhackel)\r\n• Fix OLED live chat (@bhackel) [331](https://github.com/YTLitePlus/YTLitePlus/pull/331)\r\n\r\nImprovements\r\n• Cleanup Makefile and actions script (@bhackel)\r\n• Default disable big mini player (@bhackel)\r\n• Hide comment previews (@bhackel)\r\n• Hide autoplay mini preview (@bhackel)\r\n• Remove YTLitePlus OLED Theme (@bhackel)\r\n• Copy Hide HUD and Hide Collapse Button (@bhackel)\r\n\r\nLocalization\r\n• Fix import/export settings localization (@bhackel)\r\n• Turkish: Added proper localization (@gototheskinny) [283](https://github.com/YTLitePlus/YTLitePlus/pull/283), updated (@gototheskinny) [336](https://github.com/YTLitePlus/YTLitePlus/pull/336)\r\n• Bulgarian: Added translations (@schweppes•0x) [332](https://github.com/YTLitePlus/YTLitePlus/pull/332)\r\n• Portuguese: Updated localization (@VictorxD70) [326](https://github.com/YTLitePlus/YTLitePlus/pull/326)\r\n• Added missing strings to localization (@Balackburn)\r\n• Updated Localizable.strings (@manhchuduc) [305](https://github.com/YTLitePlus/YTLitePlus/pull/305)\r\n\r\nUpdated Submodules\r\n• Added YouTimeStamp submodule\r\n• DontEatMyContent\r\n• YouGroupSettings\r\n• YouTubeHeader\r\n• iSponsorBlock\r\n• YTABConfig\r\n• YTUHD\r\n• Return•YouTube•Dislikes\r\n• YouMute\r\n• protobuf \r\n\r\nContributors\r\n• @bhackel\r\n• @arichornlover\r\n• @gototheskinny\r\n• @Balackburn\r\n• @manhchuduc\r\n• @VictorxD70\r\n• @schweppes•0x\r\n\r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n• YouTube crashing when viewing Shorts\r\n\r\nCatbox\r\n\"98ns5s.ipa\"",
+          "downloadURL": "https://files.catbox.moe/98ns5s.ipa",
+          "size": 111368802
+        },
+        {
+          "version": "19.29.1",
+          "date": "2024-07-31",
+          "localizedDescription": "Current YouTube IPA: \"19.29.1\"  \r\nCurrent YTLite Version: \"4.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 15.0\" or later\r\n\r\nRELEASE 19.29.1•4.0.1 (2024•07•22)\r\n\r\n• Updated YouTube from \"19.23.3\" to \"19.29.1\"\r\n\r\nNew Features\r\n\r\n• Added \"Hide Home Tab\" option ([@bhackel](https://github.com/bhackel)) [210]()\r\n• Added \"Fullscreen to the Right\" option ([@arichornlover](https://github.com/arichornlover))\r\n• Added \"Disable Engagement Overlay\" option ([@bhackel](https://github.com/bhackel))\r\n• Added \"Classic Seek Anywhere\" gesture ([@bhackel](https://github.com/bhackel))\r\n• Added YTHeaders submodule ([@Balackburn](https://github.com/Balackburn))\r\n\r\nBug Fixes\r\n\r\n• Fixed escaping quotes issue ([@AlexInABox](https://github.com/AlexInABox)) [187]()\r\n• Fixed SDK caching issues ([@arichornlover](https://github.com/arichornlover))\r\n• Fixed crash caused by edge case ([@bhackel](https://github.com/bhackel))\r\n• Fixed compilation errors ([@bhackel](https://github.com/bhackel))\r\n• Fixed home contents bug ([@bhackel](https://github.com/bhackel))\r\n• Fixed \"Fullscreen to the Right\" functionality ([@bhackel](https://github.com/bhackel))\r\n• Fixed redefinition of •userInterfaceIdiom issue ([@asdfzxcvbn](https://github.com/asdfzxcvbn))\r\n\r\nImprovements\r\n\r\n• Cleaned up and added workflow settings ([@bhackel](https://github.com/bhackel))\r\n• Updated compiling for YouTube v19.21.2+ ([@arichornloverALT](https://github.com/arichornloverALT))\r\n• Removed deprecated and redundant code ([@bhackel](https://github.com/bhackel))\r\n• Synchronized delete•workflow•runs.yml ([@arichornlover](https://github.com/arichornlover))\r\n\r\nLocalization\r\n\r\n• Updated German translation for \"CHANGE_APP_ICON\" string ([@AlexInABox](https://github.com/AlexInABox)) [186]()\r\n• Updated Portuguese localization ([@VictorxD70](https://github.com/VictorxD70)) [253](), [254]()\r\n• Updated Spanish localization ([@Deci8BelioS](https://github.com/Deci8BelioS)) [260]()\r\n\r\nUpdated Submodules\r\n\r\n• Updated submodules: protobuf, iSponsorBlock, Return•YouTube•Dislikes, YouPiP, YouQuality, YouTubeHeader, YTHoldForSpeed, YTUHD, YouGroupSettings, YouMute, DontEatMyContent ([@actions•user](https://github.com/actions•user))\r\n• Replaced submodule at Tweaks/YouPiP with [https://github.com/bhackel/YouPiP](https://github.com/bhackel/YouPiP) ([@bhackel](https://github.com/bhackel))\r\n\r\nMiscellaneous\r\n\r\n• Synchronized uYouEnhanced templates ([@bhackel](https://github.com/bhackel))\r\n\r\nContributors\r\n\r\n• [@AlexInABox](https://github.com/AlexInABox)\r\n• [@Balackburn](https://github.com/Balackburn)\r\n• [@arichornlover](https://github.com/arichornlover)\r\n• [@bhackel](https://github.com/bhackel)\r\n• [@asdfzxcvbn](https://github.com/asdfzxcvbn)\r\n• [@VictorxD70](https://github.com/VictorxD70)\r\n• [@Deci8BelioS](https://github.com/Deci8BelioS)\r\n\r\nIssues in this Release\r\n\r\n• LowContrastMode does not work _(Compatible only with YouTube v17.33.2•v17.38.10)_\r\n\r\nCatbox\r\n\r\n\"819wt5.ipa\"",
+          "downloadURL": "https://files.catbox.moe/819wt5.ipa",
+          "size": 111020044
+        },
+        {
+          "version": "19.23.3",
+          "date": "2024-06-10",
+          "localizedDescription": "Current YouTube IPA: \"19.23.3\"  \r\nCurrent YTLite Version: \"4.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 15.0\" or later\r\n\r\nRELEASE 19.23.3•4.0.1: (2024•06•10)\r\n\r\n• Updated Youtube from \"19.22.6\" to \"19.23.3\"\r\n• Updated submodules\r\n• Fixed compiling\r\n\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n\r\nCatbox\r\n\"pmsw97.ipa\"",
+          "downloadURL": "https://files.catbox.moe/pmsw97.ipa",
+          "size": 119751592
+        },
+        {
+          "version": "19.22.6",
+          "date": "2024-06-09",
+          "localizedDescription": "Current YouTube IPA: \"19.22.6\"  \r\nCurrent YTLite Version: \"4.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 15.0\" or later\r\n\r\nRELEASE 19.22.6•4.0.1: (2024•06•09)\r\n\r\n• Updated Youtube from \"19.21.3\" to \"19.22.6\"\r\n• Updated submodules\r\n• Updated YTLite from \"4.0\" to \"4.0.1\"\r\n    • Added ability to play videos in external players (System, Infuse, VLC)\r\n\r\n    • Added option to keep Shorts videos in the Subscriptions tab (https://github.com/dayanch96/YTLite/issues/91)\r\n\r\n    • Added ability to open shorts as regular videos using YTPlus menu button in Shorts\r\n\r\n    • Added ability to enable/disable auto•skip shorts option using YTPlus menu button in Shorts\r\n\r\n    • Added option to disable Autoplay end•screen recommendation (Enabling this option will also disable autoplay next video feature)\r\n\r\n    • Improved Shorts downloading which directly downloads best mp4 video\r\n\r\n    • Improved YTPlus button compatibility with the latest YouTube versions\r\n\r\n    • Improved YTPlus button compatibility with Inline muted playback (Player that displayed on video thumbnail)\r\n\r\n    • Fixed blank space issues on the big screens (https://github.com/dayanch96/YTLite/issues/105)\r\n\r\n    • Fixed crashes when trying to show share sheet on iPad devices\r\n\r\n    • Updated localization strings (https://github.com/dayanch96/YTLite/issues/106)\r\n\r\n    • Corrected some localization strings (https://github.com/dayanch96/YTLite/issues/112)\r\n\r\n    • Fixed an issue that caused the search bar to disappear (https://github.com/dayanch96/YTLite/issues/117)\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*",
+          "downloadURL": "https://files.catbox.moe/5vd19e.ipa",
+          "size": 119401636
+        },
+        {
+          "version": "19.21.3",
+          "date": "2024-06-03",
+          "localizedDescription": "Current YouTube IPA: \"19.21.3\"  \r\nCurrent YTLite Version: \"4.0\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.21.3•4.0: (2024•06•03)\r\n\r\n• Updated Youtube from \"19.19.5\" to \"19.21.3\"\r\n\r\n• Updated submodules\r\n\r\n• Updated @daynch96 YTLite from \"3.0.1\" to \"4.0\"\r\n    • Downloading feature\r\n    • Tweak UI improvements\r\n    • Added some player gestures\r\n    • Added Import/Export settings feature (Tweak preferences)\r\n    • Added Old/New UI toggle (Version spoofing)\r\n    • Added options to remove community posts and inline comment under the player\r\n    • Added OLED dark mode support\r\n    • Added option to speed up Shorts\r\n    • Lite version temporarily disabled\r\n    • Fixed blank screen issue (Thanks to @PoomSmart for the https://github.com/PoomSmart/YouTube•X)\r\n    • Removed version spoofing on extra speed options and classic video quality as unneeded\r\n    • Fixed issues related to Disable auto•caption feature\r\n    • Fixed crashes related to Auto•quality feature\r\n\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*",
+          "downloadURL": "https://files.catbox.moe/p2f755.ipa",
+          "size": 119287761
+        },
+        {
+          "version": "19.18.2",
+          "date": "2024-05-09",
+          "localizedDescription": "Current YouTube IPA: \"19.18.2\"  \r\nCurrent YTLite Version: \"3.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.18.2•3.0.1: (2024•05•09)\r\n\r\n• Updated Youtube from \"19.17.2\" to \"19.18.2\"\r\n• Updated submodules\r\n  \r\nIssues in this Release:\r\n• Homescreen is bugged when ‘All’ is selected 116\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://files.catbox.moe/39xiux.ipa",
+          "size": 113796369
+        },
+        {
+          "version": "19.17.2",
+          "date": "2024-05-05",
+          "localizedDescription": "Current YouTube IPA: \"19.17.2\"  \r\nCurrent YTLite Version: \"3.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.17.2•3.0.1: (2024•05•05)\r\n\r\n• Updated Youtube from \"19.16.3\" to \"19.17.2\"\r\n• Updated submodules\r\n• Removal of custom icons (because they weren't functional)\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://github.com/YTLitePlus/YTLitePlus/releases/download/v19.17.2-3.0.1/YTLitePlus_19.17.2_3.0.1.ipa",
+          "size": 113674844
+        },
+        {
+          "version": "19.16.3",
+          "date": "2024-04-27",
+          "localizedDescription": "Current YouTube IPA: \"19.16.3\"  \r\nCurrent YTLite Version: \"3.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.16.3•3.0.1: (2024•04•27)\r\n\r\n• Updated Youtube from \"19.14.3\" to \"19.16.3\"\r\n• Updated submodules\r\n  \r\nIssues in this Release:\r\n• Changing app icons doesn't work \r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://github.com/YTLitePlus/YTLitePlus/releases/download/v19.16.3-3.0.1/YTLitePlus_19.16.3_3.0.1.ipa",
+          "size": 113674844
+        },
+        {
+          "version": "19.14.3",
+          "date": "2024-04-13",
+          "localizedDescription": "Current YouTube IPA: \"19.14.3\"  \r\nCurrent YTLite Version: \"3.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.14.3•3.0.1: (2024•04•13)\r\n\r\n• Updated Youtube from \"19.12.3\" to \"19.14.3\"\r\n• Added German Localization @zSaaiq & @AlexInABox\r\n• Added Tweak YouGroupSettings @Poomsmart\r\n• Updated Submodules\r\n    • YTABConfig\r\n    • protobuf \r\n    • Return YouTube Dislikes \r\n    • YouTubeHeader \r\n    • YouPiP \r\n    • iSponsorBlock \r\n    • YTUHD\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://files.catbox.moe/rp45kz.ipa",
+          "size": 113040686
+        },
+        {
+          "version": "19.12.3",
+          "date": "2024-03-27",
+          "localizedDescription": "Current YouTube IPA: \"19.12.3\"  \r\nCurrent YTLite Version: \"3.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.12.3•3.0.1: (2024•03•27)\r\n\r\n• Updated Youtube from \"19.10.7\" to \"19.12.3\"\r\n• Updated submodules\r\n   • YTUHD \r\n   • YouPiP \r\n   • YouTubeHeader\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://litter.catbox.moe/kz63f7.ipa",
+          "size": 112264171
+        },
+        {
+          "version": "19.10.7",
+          "date": "2024-03-23",
+          "localizedDescription": "Current YouTube IPA: \"19.10.7\"  \r\nCurrent YTLite Version: \"3.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.10.7•3.0.1: (2024•03•23)\r\n\r\n• Updated Youtube from \"19.10.5\" to \"19.10.7\"\r\n• Updated submodules\r\n  \r\nIssues in this Release:\r\n• On some device iSponsorBlock crash, disable it to fix the crash\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://files.catbox.moe/ta45nq.ipa",
+          "size": 112264171
+        },
+        {
+          "version": "19.10.5",
+          "date": "2024-03-11",
+          "localizedDescription": "Current YouTube IPA: \"19.10.5\"  \r\nCurrent YTLite Version: \"3.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.10.5•3.0.1: (2024•03•11)\r\n\r\n• Updated Youtube from \"19.9.04\" to \"19.10.5\"\r\n•  Updated Submodules\r\n\t• YTLite \r\n\t\t• Updated Localizations\r\n\t• YTUHD \r\n\t• protobuf \r\n\t• DontEatMyContent \r\n\t• YouTubeHeader \r\n\t• iSponsorBlock\r\n\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://files.catbox.moe/ta45nq.ipa",
+          "size": 112264171
+        },
+        {
+          "version": "19.09.4",
+          "date": "2024-03-07",
+          "localizedDescription": "Current YouTube IPA: \"19.09.4\"  \r\nCurrent YTLite Version: \"3.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.09.4•3.0.1: (2024•03•07)\r\n\r\n• Updated Youtube from \"19.09.3\" to \"19.09.4\"\r\n• Updated YTLite from \"3.0\" to \"3.0.1\"\r\n    • Fixed random crashes when auto•skip shorts option enabled\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://archive.org/download/ytlite-plus-19.05.3-2.4.1/YTLitePlus_19.09.4_3.0.1.ipa",
+          "size": 114383760
+        },
+        {
+          "version": "19.09.3",
+          "date": "2024-03-06",
+          "localizedDescription": "Current YouTube IPA: \"19.09.3\"  \r\nCurrent YTLite Version: \"3.0\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.09.3•3.0: (2024•03•06)\r\n\r\n•  Updated YTLite from \"2.7\" to \"3.0\"\r\n\t• Added option to set premium logo\r\n\t• Added option to show ios volume hud in fullscreen mode\r\n\t• Added option to show end time in player bar\r\n\t• Added option to disable two finger double tap (snap to next chapter)\r\n\t• Added option to pause playback with overlay\r\n\t• Added option to auto•skip to next shorts video\r\n\t• Added option to call ios share sheet instead of yt's (Thanks to [[@jkhsjdhjs](https://github.com/jkhsjdhjs)](https://github.com/jkhsjdhjs))\r\n\t• Added Hold to speed customization feature\r\n\t• Added Default playback rate selection feature\r\n\t• Added the ability to show/hide the \"You\" tab (without it, settings is unreachable). Activates by long pressing on the Home tab.\r\n\t• Added the ability to instantly apply tab settings\r\n\t• Switched to custom UserDefaults class by extending NSUserDefaults (Thanks to [[@danpashin](https://github.com/danpashin)](https://github.com/danpashin))\r\n\t• Added a category to NSBundle for accessing a default bundle instance (Thanks to [[@danpashin](https://github.com/danpashin)](https://github.com/danpashin))\r\n\r\n ⚠️⚠️ All .ipa's will be removed within the next 24 hours because of a Youtube DMCA Notice ⚠️⚠️\r\nToday I received a DMCA takedown notice for all the YTLitePlus ipa's, I will remove them tomorrow at 3:36 PM UTC \r\n\r\nFor more information please check : \r\nhttps://www.reddit.com/r/jailbreak/comments/1b86tiz/balackburn_here_maintainer_of_ytliteplus_ive_just/\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v19.09.3-3.0/YTLitePlus_19.09.3_3.0.ipa",
+          "size": 112199163
+        },
+        {
+          "version": "19.08.2",
+          "date": "2024-02-28",
+          "localizedDescription": "Current YouTube IPA: \"19.08.2\"  \r\nCurrent YTLite Version: \"2.7\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.08.2•2.7: (2024•02•28)\r\n\r\n• Updated Youtube from \"19.06.2\" to \"19.08.2\"\r\n    • Fixed bugs, improved performance, drank way too much coffee.\r\n    \r\n• Updated YTLite from \"2.6.1\" to \"2.7\"\r\n    • Copy post text feature replaced with Post manager: Copy post text or save/copy post as image \r\n    • Fixed copy comment issue\r\n    • Copy comment text feature replaced with Comment manager: Copy comment text or save/copy comment as image\r\n    • Auto select quality for Wifi and Cellular data (Default, Best or Custom quality)\r\n    • Added options to hide Download, Watch later, Save to Playlist, Share, Not interested, Don't recommend and report buttons from the video menu \r\n    • Added options to hide Remix, Clip and Download buttons under the video player (Thanks to @PoomSmart)\r\n    • Save Post image moved to Post manager (long tap on post) \r\n    • Improved YTLite UI\r\n    \r\n• Updated submodules \r\n    • iSponsorBlock\r\n    • DontEatMyContent\r\n    • YouTubeHeader\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v19.08.2-2.7/YTLitePlus_19.08.2_2.7.ipa",
+          "size": 112048023
+        },
+        {
+          "version": "19.06.2",
+          "date": "2024-02-21",
+          "localizedDescription": "Current YouTube IPA: \"19.06.2\"  \r\nCurrent YTLite Version: \"2.6.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.06.2•2.6.1: (2024•02•21)\r\n\r\n• Updated YTLite from \"2.6\" to \"2.6.1\"\r\n    • Vietnamese localization support\r\n    • Fixed layout issues\r\n    • Fixed copy comment issues\r\n\r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Hiding Shorts creates an empty black space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v19.06.2-2.6.1/YTLitePlus_19.06.2_2.6.1.ipa",
+          "size": 111705870
+        },
+        {
+          "version": "19.05.3",
+          "date": "2024-02-07",
+          "localizedDescription": "Current YouTube IPA: \"19.05.3\"  \r\nCurrent YTLitePlus Version: \"2.4.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.05.3•2.4.1: (2024•02•07)\r\n\r\n• Updated Youtube from \"19.04.3\" to \"19.05.3\"\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*\r\n• Hiding Shorts creates an empty black space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v19.05.3-2.4.1/YTLitePlus_19.05.3_2.4.1.ipa",
+          "size": 119297942
+        },
+        {
+          "version": "19.04.3",
+          "date": "2024-01-31",
+          "localizedDescription": "Current YouTube IPA: \"19.04.3\"  \r\nCurrent YTLitePlus Version: \"2.4.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.04.3•2.4.1: (2024•01•31)\r\n\r\n• Updated Youtube from \"19.03.2\" to \"19.04.3\"\r\n• Updated submodules \r\n    • DontEatMyContent  \r\n    • PSHeader\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*\r\n• Hiding Shorts creates an empty black space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v19.04.3-2.4.1/YTLitePlus_19.04.3_2.4.1.ipa",
+          "size": 112614181
+        },
+        {
+          "version": "19.03.2",
+          "date": "2024-01-26",
+          "localizedDescription": "Current YouTube IPA: \"19.03.2\"  \r\nCurrent YTLitePlus Version: \"2.4.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.03.2•2.4.1: (2024•01•26)\r\n• Updated Youtube from \"19.02.1\" to \"19.03.2\"  \r\n• Updated YTLitePlus settings to support YT \"19.03.2\"\r\n• Updated YTLite from \"2.4\" to \"2.4.1\" \r\n    • \"support 19.03.2\" @xiangfeidexiaohuo\r\n• Updated submodules\r\n    • YTABConfig \r\n    • Return•YouTube•Dislikes \r\n    • YTUHD \r\n    • YTVideoOverlay \r\n    • YouPiP \r\n    • YouTubeHeader \r\n    • DontEatMyContent \r\n    • YTHoldForSpeed \r\n\r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*\r\n• Hiding Shorts creates an empty black space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v19.03.2-2.4.1/YTLitePlus_19.03.2_2.4.1.ipa",
+          "size": 115501760
+        },
+        {
+          "version": "19.02.1",
+          "date": "2024-01-17",
+          "localizedDescription": "Current YouTube IPA: \"19.02.1\"  \r\nCurrent YTLitePlus Version: \"2.4\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.02.1•2.4: (2024•01•17)\r\n\r\n• Updated Youtube from \"19.01.1\" to \"19.02.1\"\r\n• Added French localization for \"YTNoSuggestedVideo\"\r\n• Added Japanese (@SKEIDs) localization for \"YTNoSuggestedVideo\"\r\n• Updated submodules \r\n    • YTHoldForSpeed\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*\r\n• Hiding Shorts creates an empty black space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v19.02.1-2.4/YTLitePlus_19.02.1_2.4.ipa",
+          "size": 111086384
+        },
+        {
+          "version": "19.01.1",
+          "date": "2024-01-13",
+          "localizedDescription": "Current YouTube IPA: \"19.01.1\"  \r\nCurrent YTLitePlus Version: \"2.4\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 19.01.1•2.4: (2024•01•11)\r\n\r\n• Updated Youtube from \"18.49.3\" to \"19.01.1\"\r\n• Added \"YTNoSuggestedVideo\"\r\n• Added zh_TW tranlations by @olivertzen\r\n• Updated submodules\r\n   • YouPiP\r\n   • DontEatMyContent\r\n   • YouQuality \r\n   • YouMute \r\n   • YTVideoOverlay \r\n   • YTABConfig\r\n   • iSponsorBlock\r\n   • YTLite\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.46.5•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*\r\n• Hiding Shorts creates an empty black space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v19.01.1-2.4/YTLitePlus_19.01.1_2.4.ipa",
+          "size": 111109506
+        },
+        {
+          "version": "18.49.3",
+          "date": "2023-12-24",
+          "localizedDescription": "Current YouTube IPA: \"18.49.3\"  \r\nCurrent YTLitePlus Version: \"2.4\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.49.3•2.4: (2023•12•24)\r\n\r\n• Updated Youtube from \"18.48.3\" to \"18.49.3\"\r\n• Updated Submodules\r\n   • YouTubeHeader\r\n   • YouQuality\r\n   • YTHoldForSpeed \r\n   • YTABConfig \r\n   • YTVideoOverlay \r\n   • YouMute\r\n   • DontEatMyContent\r\n• Added YTNoTracking @arichorn \r\n• Updated Version Spoofer Options @arichorn \r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.05.7•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*\r\n• Hiding Shorts creates an empty black space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.49.3-2.4/YTLitePlus_18.49.3_2.4.ipa",
+          "size": 111538288
+        },
+        {
+          "version": "18.48.3",
+          "date": "2023-12-05",
+          "localizedDescription": "Current YouTube IPA: \"18.48.3\"  \r\nCurrent YTLitePlus Version: \"2.4\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.48.3•2.4: (2023•12•05)\r\n\r\n• Updated Youtube from \"18.46.3\" to \"18.48.3\"\r\n• Updated submodules\r\n• New \"Hide Shorts\" option (YTUnShorts) from @poomsmart\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.05.7•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*\r\n• Hiding Shorts creates an empty black space instead 55",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.48.3-2.4/YTLitePlus_18.48.3_2.4.ipa",
+          "size": 111274005
+        },
+        {
+          "version": "18.46.3",
+          "date": "2023-11-26",
+          "localizedDescription": "Current YouTube IPA: \"18.46.3\"  \r\nCurrent YTLitePlus Version: \"2.4\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.46.3•2.4: (2023•11•24)\r\n\r\n• Updated Youtube from \"18.45.2\" to \"18.46.3\"\r\n  \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.05.7•v17.38.10)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.46.3-2.4/YTLitePlus_18.46.3_2.4.ipa",
+          "size": 110950856
+        },
+        {
+          "version": "18.45.2",
+          "date": "2023-11-14",
+          "localizedDescription": "Current YouTube IPA: \"18.45.2\"  \r\nCurrent YTLitePlus Version: \"2.4\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.45.2•2.4: (2023•11•14)\r\n\r\n• Updated Youtube from \"18.44.3\" to \"18.45.2\"\r\n \r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.05.7•v17.38.10)*\r\n• Shorts are not hidden everywhere *(problem with YTLite tweak)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*\r\n• Options Hide \"Super Thanks button\" & \"Hide Description\" will make shorts crash",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.45.2-2.4/YTLitePlus_18.45.2_2.4.ipa",
+          "size": 106847956
+        },
+        {
+          "version": "18.44.3",
+          "date": "2023-11-10",
+          "localizedDescription": "Current YouTube IPA: \"18.44.3\"  \r\nCurrent YTLitePlus Version: \"2.4\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.44.3•2.4: (2023•11•10)\r\n\r\n• Updated Youtube from \"18.41.2\" to \"18.44.3\"\r\n• Updated YTLite from \"2.3.1\" to \"2.4\" @dayanch96\r\n• Updated submodules \r\n\t• YTUHD\r\n\t• YTVideoOverlay\r\n\t• YouTubeHeader\r\n\t• Return•YouTube•Dislikes\r\n\t• YTUHD\r\n\t• YTVideoOverlay\r\n\t• YouPiP\r\n\t• YTHoldForSpeed\r\n\t\r\nIssues in this Release:\r\n• LowContrastMode does not work *(Compatible only with YouTube v16.05.7•v17.38.10)*\r\n• Shorts are not hidden everywhere *(problem with YTLite tweak)*\r\n• VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*\r\n• Age•restricted videos don't load correctly 29 *(enable \"Skip content warning\" in YTlite settings to resolve this issue)*\r\n• Options Hide \"Super Thanks button\" & \"Hide Description\" will make shorts crash",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.44.3-2.4/YTLitePlus_18.44.3_2.4.ipa",
+          "size": 106847881
+        },
+        {
+          "version": "18.41.2",
+          "date": "2023-10-18",
+          "localizedDescription": "Current YouTube IPA: \"18.41.2\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.41.2•2.3.1: (2023•10•18)\r\n\r\n• Updated Youtube from \"18.40.1\" to \"18.41.2\"\r\n\r\nIssues in this Release:\r\n• LowContrastMode does not work (Compatible only with YouTube v16.05.7•v17.38.10)\r\n• Shorts are not hidden everywhere (problem with YTLite tweak)\r\n• VersionSpoofer (Lite) doesn't work with YTLite (as the version is already spoofed by YTLite to fix YTClassicVideoQuality)\r\n• Age•restricted videos don't load correctly 29 (enable \"Skip content warning\" in YTlite settings to resolve this issue)\r\n• Options \"Hide Superthanks button\" & \"Hide Description\" will make shorts crash",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.41.2-2.3.1/YTLitePlus_18.41.2_2.3.1.ipa",
+          "size": 105479115
+        },
+        {
+          "version": "18.40.1",
+          "date": "2023-10-10",
+          "localizedDescription": "Current YouTube IPA: \"18.40.1\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.40.1•2.3.1: (2023•10•10)\r\n\r\n• Updated Youtube from \"18.39.1\" to \"18.40.1\"\r\n• Removed Broken Options\r\n\t• \"Hide “DontEatMyContent” Section\"\r\n\t• \"Hide “YouTube Return Dislike” Section\"\r\n\t• \"Hide “YouPiP” Section\"\r\n\r\nIssues in this Release:\r\n• LowContrastMode does not work (Compatible only with YouTube v16.05.7•v17.38.10)\r\n• Shorts are not hidden everywhere (problem with YTLite tweak)\r\n• VersionSpoofer (Lite) doesn't work with YTLite (as the version is already spoofed by YTLite to fix YTClassicVideoQuality)\r\n• Age•restricted videos don't load correctly 29 (enable \"Skip content warning\" in YTlite settings to resolve this issue)",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.40.1-2.3.1/YTLitePlus_18.40.1_2.3.1.ipa",
+          "size": 105536773
+        },
+        {
+          "version": "18.39.1",
+          "date": "2023-10-05",
+          "localizedDescription": "Current YouTube IPA: \"18.39.1\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.39.1•2.3.1: (2023•10•05)\r\n\r\n• Updated Youtube from \"18.38.2\" to \"18.39.1\"\r\n• Fixed untranslated localizations (APP_SETTINGS_OVERLAY_OPTIONS and APP_VERSION_SPOOFER_LITE)\r\n\r\nIssues in this Release:\r\n• LowContrastMode does not work (Compatible only with YouTube v16.05.7•v17.38.10)\r\n• Shorts are not hidden everywhere (problem with YTLite tweak)\r\n• VersionSpoofer (Lite) doesn't work with YTLite (as the version is already spoofed by YTLite to fix YTClassicVideoQuality)\r\n• Age•restricted videos don't load correctly 29 (enable \"Skip content warning\" in YTlite settings to resolve this issue)",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.39.1-2.3.1/YTLitePlus_18.39.1_2.3.1.ipa",
+          "size": 105359701
+        },
+        {
+          "version": "18.38.2",
+          "date": "2023-09-26",
+          "localizedDescription": "Current YouTube IPA: \"18.38.2\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.38.2•2.3.1: (2023•09•26)\r\n• Updated Youtube from \"18.35.4\" to \"18.38.2\"\r\n• Updated Version Spoofer (Lite) (@arichorn)\r\n• New options (@arichorn)\r\n\t• Added option to Hide Account Section\r\n\t• Added option to Hide \"DontEatMyContent\" Section\r\n\t• Added option to Hide \"YouTube Return Dislike\" Section\r\n\t• Added option to Hide \"YouPiP\" Section\r\n\t• Added option to Hide \"Autoplay\" Section\r\n\t• Added option to Hide \"Try New Features\" Section\r\n\t• Added option to Hide \"Video quality preferences\" Section\r\n\t• Added option to Hide \"Notifications\" Section\r\n\t• Added option to Hide \"Manage all history\" Section\r\n\t• Added option to Hide \"Your data in YouTube\" Section\r\n\t• Added option to Hide \"Privacy\" Section\r\n\t• Added option to Hide \"Live Chat\" Section\r\n\t• Removed \"Disable Wi•Fi Related Settings\"\r\n• Fixed all YTLitePlus localizations\r\n\r\nIssues in this Release:\r\n• LowContrastMode does not work (Compatible only with YouTube v16.05.7•v17.38.10)\r\n• Shorts are not hidden everywhere (problem with YTLite tweak)\r\n• VersionSpoofer (Lite) doesn't work with YTLite (as the version is already spoofed by YTLite to fix YTClassicVideoQuality)\r\n• Age•restricted videos don't load correctly 29 (enable \"Skip content warning\" in YTlite settings to resolve this issue)\r\n• VP9 (YTHUD) is currently broken, so resolutions higher than 1080p like 1440p or 4k won't work.",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.38.2-2.3.1/YTLitePlus_18.38.2_2.3.1.ipa",
+          "size": 105055550
+        },
+        {
+          "version": "18.35.4",
+          "date": "2023-09-08",
+          "localizedDescription": "Current YouTube IPA: \"18.35.4\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.35.4•2.3.1: (2023•09•08)\r\n\r\n• Updated Youtube from \"18.34.5\" to \"18.35.4\"\r\n\r\nIssues in this Release:\r\n• LowContrastMode does not work (Compatible only with YouTube v16.05.7•v17.38.10)\r\n• Shorts are not hidden everywhere (problem with YTLite tweak)\r\n• VersionSpoofer (Lite) doesn't work with YTLite (as the version is already spoofed by YTLite to fix YTClassicVideoQuality)\r\n• Age•restricted videos don't load correctly 29 (enable \"Skip content warning\" in YTlite settings to resolve this issue)\r\n• VP9 (YTHUD) is currently broken, so resolutions higher than 1080p like 1440p or 4k won't work.",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.35.4-2.3.1/YTLitePlus_18.35.4_2.3.1.ipa",
+          "size": 104407606
+        },
+        {
+          "version": "18.34.5",
+          "date": "2023-09-06",
+          "localizedDescription": "Current YouTube IPA: \"18.34.5\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.34.5•2.3.1: (2023•09•06)\r\n\r\n• Updated Youtube from \"18.33.3\" to \"18.34.5\"\r\n• Updated LowContrastMode from \"1.4.0\" to \"1.4.2\" from @arichorn \r\n\r\nIssues in this Release:\r\n• LowContrastMode does not work (Compatible only with YouTube v16.05.7•v17.38.10)\r\n• Shorts are not hidden everywhere (problem with YTLite tweak)\r\n• VersionSpoofer (Lite) doesn't work (the version is already spoofed by YTLite)\r\n• If age•restricted videos do not load correctly 29 enable \"Skip content warning\" in YTLite settings to fix the issue",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.34.5-2.3.1/YTLitePlus_18.34.5_2.3.1.ipa",
+          "size": 104247443
+        },
+        {
+          "version": "18.33.3",
+          "date": "2023-08-30",
+          "localizedDescription": "Current YouTube IPA: \"18.33.3\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.33.3•2.3.1: (2023•08•30)\r\n\r\n• Updated Youtube from \"18.33.2\" to \"18.33.3\"\r\n• Updated YTLite to the latest commit\r\n\t• Updated French localization\r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)\r\n• Shorts are not hidden everywhere (problem with YTLite tweak)\r\n• VersionSpoofer (Lite) doesn't work (the version is already spoofed by YTLite)\r\n• Age•restricted videos do not load correctly 29",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.33.3-2.3.1/YTLitePlus_18.33.3_2.3.1.ipa",
+          "size": 104165997
+        },
+        {
+          "version": "18.33.2",
+          "date": "2023-08-27",
+          "localizedDescription": "Current YouTube IPA: \"18.33.2\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.33.2•2.3.1: (2023•08•27)\r\n\r\n• Updated Youtube from \"18.32.2\" to \"18.33.2\"\r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)\r\n• Shorts are not hidden everywhere (problem with YTLite tweak)\r\n• VersionSpoofer (Lite) doesn't work (the version is already spoofed by YTLite)",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.33.2-2.3.1/YTLitePlus_18.33.2_2.3.1.ipa",
+          "size": 104165527
+        },
+        {
+          "version": "18.32.2",
+          "date": "2023-08-26",
+          "localizedDescription": "Current YouTube IPA: \"18.32.2\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.32.2•2.3.1: (2023•08•26)\r\n\r\n• Updated Youtube from \"18.31.3\" to \"18.32.2\"\r\n• Updated  iOS SDK from \"iOS•15.5•SDK\" to \"iOS•16.2•SDK\"\r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)\r\n• Shorts are not hidden everywhere (problem with YTLite tweak)\r\n• VersionSpoofer (Lite) doesn't work (the version is already spoofed by YTLite)",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.32.2-2.3.1/YTLitePlus_18.32.2_2.3.1.ipa",
+          "size": 103997814
+        },
+        {
+          "version": "18.31.3",
+          "date": "2023-08-10",
+          "localizedDescription": "Current YouTube IPA: \"18.31.3\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.31.3•2.3.1: (2023•08•10)\r\n\r\n• Updated Youtube from \"18.30.6\" to \"18.31.3\"\r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)\r\n• Version Spoofer (lite) doesn't work",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.31.3-2.3.1/YTLitePlus_18.31.3_2.3.1.ipa",
+          "size": 103817100
+        },
+        {
+          "version": "18.30.6",
+          "date": "2023-07-31",
+          "localizedDescription": "Current YouTube IPA: \"18.30.6\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.30.6•2.3.1: (2023•07•31)\r\n\r\n• Updated Youtube  from \"18.29.1\" to \"18.30.6\"  \r\n• Improved Old Darkmode & OLED darkmode @arichorn \r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.30.6-2.3.1/YTLitePlus_18.30.6_2.3.1.ipa",
+          "size": 103404409
+        },
+        {
+          "version": "18.29.1",
+          "date": "2023-07-29",
+          "localizedDescription": "Current YouTube IPA: \"18.29.1\"  \r\nCurrent YTLitePlus Version: \"2.3.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.29.1•2.3.1: (2023•07•29)\r\n\r\n• Updated YTLite from \"2.3\" to \"2.3.1\" \r\n  • Japanese localization support (Thank you to @SKEIDs)\r\n  • Fix for \"Remove dark background\" option (Thank you to @arichorn)\r\n  • Small improvements\r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.29.1-2.3.1/YTLitePlus_18.29.1_2.3.1.ipa",
+          "size": 103152898
+        },
+        {
+          "version": "18.28.3",
+          "date": "2023-07-17",
+          "localizedDescription": "Current YouTube IPA: \"18.28.3\"  \r\nCurrent YTLitePlus Version: \"2.3\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.28.3•2.3: (2023•07•17)\r\n\r\n• Updated Youtube from \"18.27.3\" to \"18.28.3\"\r\n• Fix and Improvements (@arichorn)\r\n\t• Removed duplicates options with YTLite\r\n\t• Updated VersionSpoofer\r\n\t• Updated LowContrastMode\r\n\t• Fixed broken options\r\n\r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)\r\n• YTSpeed not working (both broken in v18.19.1+)",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.28.3-2.3/YTLitePlus_18.28.3_2.3.ipa",
+          "size": 103030256
+        },
+        {
+          "version": "18.27.3",
+          "date": "2023-07-15",
+          "localizedDescription": "Current YouTube IPA: \"18.27.3\"  \r\nCurrent YTLitePlus Version: \"2.3\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.27.3•2.3: (2023•07•15)\r\n• Updated YTLite from \"2.2.1\" to \"2.3\" @dayanch96\r\n\t• Added option to hide search history\r\n\t• Added option to remove videos section under the video player\r\n\t• Added option to stick sort buttons panel in comments section\r\n\t• Added option to hide sort buttons panel in comments section\r\n\t• Added option to replace floating playlist minibar with classic one\r\n\t• Added option to disable right•to•left formatting\r\n\t\r\n• Updated submodules\r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)\r\n• YTSpeed not working (both broken in v18.19.1+)",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.27.3-2.3/YTLitePlus_18.27.3_2.3.ipa",
+          "size": 102990123
+        },
+        {
+          "version": "18.25.1",
+          "date": "2023-07-07",
+          "localizedDescription": "Current YouTube IPA: \"18.25.1\"  \r\nCurrent YTLitePlus Version: \"2.2\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.25.1•2.2: (2023•07•07)\r\n\r\n• Updated YTLite from \"2.1\" to \"2.2\" (@dayanch96) \r\n  • Added:\r\n    • Extra speed options\r\n    • Auto fullscreen\r\n    • Remove 'Play next in queue' from the menu\r\n    • Remove 'Continue watching' block\r\n  • Fixed:\r\n    • 'Classic Video Quality' option for newer YT versions (See line 278)\r\n    • 'Disable Double Tap To Seek' option for newer YT versions\r\n    • Some Shorts was appearing in Search results\r\n    • Enabled ads was displaying blank blocks instead of ads in home feed\r\n\r\n• Added \"YTNoCommunityPosts\" (@arichorn)\r\n    • Tweak to add a setting to disable all Community Posts on the YouTube app\r\n  \r\n• Added \"AppVersionSpoofer\" (@arichorn)\r\n    • Mimic YouTube versions to access specific features, layouts, and resolve issues.\r\n\r\n• Fixed issue 3 \r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)\r\n• YTSpeed not working (both broken in v18.19.1+)",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.25.1-2.2/YTLitePlus_18.25.1_2.2.ipa",
+          "size": 102680656
+        },
+        {
+          "version": "18.23.3",
+          "date": "2023-06-27",
+          "localizedDescription": "Current YouTube IPA: \"v18.23.3\"  \r\nCurrent YTLite Version: \"v2.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 14.0\" or later\r\n\r\nRELEASE 18.23.3•2.1: (June 27th 2023)\r\n\r\n• Updated YTLite from \"2.0\" to \"2.1\"\r\n  • Added option to Hide \"Continue watching\" carousel in Home Tab (Other tab)\r\n  • Added option to remove \"Play next in queue\" in video menu (Other tab)\r\n  • Improved No ads option\r\n  • Improved No Shorts option\r\n  • Fixed Related videos not working\r\n  • Updated Simplified Chinese (Thanks to @xiangfeidexiaohuo)\r\n\r\nIssues in this Release:\r\n• LowContrastMode doesn't work (it work with older YT version)\r\n• The old Darkmode doesn't work quite right",
+          "downloadURL": "https://codeberg.org/Balackburn/YTLitePlus/releases/download/v18.23.3-2.1/YTLitePlus_18.23.3.ipa",
+          "size": 93660760
         }
-      ]
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "com.apple.security.application-groups",
+          "com.apple.developer.associated-domains",
+          "com.apple.developer.coremedia.allow-alternate-video-decoder-selection",
+          "com.apple.developer.usernotifications.time-sensitive",
+          "com.apple.developer.coremedia.allow-alternate-video-decoder-selection",
+          "com.apple.developer.usernotifications.time-sensitive",
+          "get-task-allow",
+          "com.apple.developer.device-information.user-assigned-device-name",
+          "com.apple.developer.group-session",
+          "keychain-access-groups",
+          "com.apple.developer.networking.multicast",
+          "aps-environment",
+          "com.apple.developer.networking.wifi-info",
+          "com.apple.developer.siri"
+        ],
+        "privacy": {
+          "NSAppleMusicUsageDescription": "YTLitePlus requires access to your Apple Music library.",
+          "NSBluetoothPeripheralUsageDescription": "YTLitePlus requires Bluetooth access to connect with nearby peripherals.",
+          "NSCameraUsageDescription": "YTLitePlus requires access to the camera to capture photos and videos.",
+          "NSContactsUsageDescription": "YTLitePlus requires access to your contacts to help you share content with your friends.",
+          "NSLocalNetworkUsageDescription": "YTLitePlus requires local network access to connect and communicate with nearby devices.",
+          "NSLocationWhenInUseUsageDescription": "YTLitePlus requires access to your location while using the app to provide personalized recommendations.",
+          "NSMicrophoneUsageDescription": "YTLitePlus requires access to your microphone to record audio.",
+          "NSPhotoLibraryUsageDescription": "YTLitePlus requires access to your Photo Library to save photos and videos.",
+          "NSUserTrackingUsageDescription": "To personalize ads and provide ad measurement, YTLitePlus will link activity from this app with activity from non-Google apps and websites."
+        }
+      }
     }
   ],
   "news": [
     {
-      "title": "YouTube Plus v5.2b4 Released",
-      "identifier": "ytp-5.2b4",
-      "caption": "Major update with Shorts overlay fixes, colored progress bar gradient, new hiding options, and tap-to-seek gesture. Updated to YouTube 20.42.3.",
+      "title": "YouTube Plus v20.42.3 Released",
+      "identifier": "com.google.ios.youtube-20.42.3",
+      "caption": "YouTube Plus v5.2b4\n\n- Fixed Shorts overlay issues\n- Fixed playback issues\n- Fixed 'Hold to speed' gesture in Shorts\n- Fixed big gap under progress bar when action bar is disabled\n- Fixed colored progress bar issues (now supports gradient color for watched progress)\n- Fixed issue where some buttons under the player were not hiding\n- Fixed transparent background in the 'Explore' sidebar\n- Fixed hiding options in YouTube sheet and added ability to hide the 'Feedback' element\n- Fixed crash on live videos when original captions were set as preferred\n- Fixed 'Remember loop mode' not saving correctly\n- Added option to hide 'Hype' and 'Stop Ads' buttons under the player\n- Added option to hide YouTube snackbars (HUD messages in player)\n- Added option to hide Products in Shorts\n- Added option to remove Comment bar in Shorts\n- Added option to remove Audio button in Shorts\n- Added option to exclude auto-dubbed audio tracks from selection\n- Added 'Tap to seek gesture' in Player settings\n- Added system theme support for YTPlus player toast (playback speed, brightness, volume)\n- Removed vibrancy effect from YTPlus player toast\n- Enabling iPad-style interface now also enables floating keyboard",
       "date": "2025-11-05",
       "tintColor": "E36678",
-      "imageURL": "https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/header.png",
       "appID": "com.google.ios.youtube",
       "notify": false
     },
     {
-      "title": "YouTube Music Ultimate v2.3.1",
-      "identifier": "ytmu-2.3.1",
-      "caption": "Fixed downloads tab not working and local network permissions.",
-      "date": "2025-01-09",
-      "tintColor": "FF0033",
-      "appID": "com.google.ios.youtubemusic",
-      "notify": false
-    },
-    {
-      "title": "Infuse Plus v2.4.1 Released",
-      "identifier": "infp-2.4.1",
-      "caption": "Removed vibrancy effect of player toast (now follows system theme), added option to automatically clean Infuse trash folder.",
+      "title": "Infuse Plus v8.2.4 Released",
+      "identifier": "com.firecore.infuse-8.2.4",
+      "caption": "Infuse Plus v2.4.1\n\n- Removed vibrancy effect of player toast, now toast follows system theme\n- Added option to automatically clean Infuse trash folder",
       "date": "2025-09-03",
       "tintColor": "FF8800",
       "appID": "com.firecore.infuse",
       "notify": false
     },
     {
-      "title": "Glow for Facebook v1.3.1",
-      "identifier": "glow-1.3.1",
-      "caption": "Faster video re-encoding with improved audio processing. Added Turkish language support.",
+      "title": "Glow for Facebook v519.0.0 Released",
+      "identifier": "com.facebook.Facebook-519.0.0",
+      "caption": "Glow v1.3.1\n- Faster video re-encoding by improved audio processing\n- Added support for Turkish language",
       "date": "2025-06-25",
       "tintColor": "B5DAFC",
       "appID": "com.facebook.Facebook",
       "notify": false
     },
     {
-      "title": "Flow for Messenger v1.0 Released",
-      "identifier": "flow-1.0",
-      "caption": "Initial release of Flow for Messenger — remove ads, anonymous story viewing, disable typing indicator, and more.",
+      "title": "Flow for Messenger v511.0.0 Released",
+      "identifier": "com.facebook.Messenger-511.0.0",
+      "caption": "- Initial release",
       "date": "2025-06-14",
       "tintColor": "AF38EB",
       "appID": "com.facebook.Messenger",
       "notify": false
+    },
+    {
+      "title": "YouTube Music Ultimate v7.33.2 Released",
+      "identifier": "com.google.ios.youtubemusic-7.33.2",
+      "caption": "YouTube Music Ultimate v2.3.1\n\n- Fixed downloads tab not working\n- Fixed local network permissions",
+      "date": "2025-01-09",
+      "tintColor": "FF0033",
+      "appID": "com.google.ios.youtubemusic",
+      "notify": false
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-09-03T05:09:38Z",
+      "identifier": "release-19.34.2-5.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.34.2-5.0.1 - YTLitePlus  03/09/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.34.2-5.0.1"
+    },
+    {
+      "title": "YTLitePlus v19.34.2 Released",
+      "identifier": "com.google.ios.youtube.ytliteplus-19.34.2",
+      "caption": "Current YouTube IPA: \"19.34.2\"  \r\nCurrent YTLite Version: \"5.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 15.0\" or later\r\n\r\nRELEASE 19.34.2•5.0.1: (2024•09•03)\r\n\r\n• Updated Youtube from \"19.32.6\" to \"19.34.2\"\r\n• Updated YTLite from \"4.0.1\" to \"5.0.1\"\r\n\r\nIssues in this Release:\r\n• Touches will not work while bypassing startup popup\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n\r\nCatbox\r\n\"z8jg5n.ipa\"",
+      "date": "2024-09-03",
+      "tintColor": "e22a41",
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "notify": false
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-08-14T02:21:01Z",
+      "identifier": "release-19.32.6-4.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.32.6-4.0.1 - YTLitePlus  14/08/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.32.6-4.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-07-22T20:19:48Z",
+      "identifier": "release-19.29.1-4.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.29.1-4.0.1 - YTLitePlus  22/07/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.29.1-4.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-06-10T21:49:59Z",
+      "identifier": "release-19.23.3-4.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.23.3-4.0.1 - YTLitePlus  10/06/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.23.3-4.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-06-09T19:17:30Z",
+      "identifier": "release-19.22.6-4.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.22.6-4.0.1 - YTLitePlus  09/06/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.22.6-4.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-06-03T01:57:21Z",
+      "identifier": "release-19.21.3-4.0",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.21.3-4.0 - YTLitePlus  03/06/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.21.3-4.0"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-05-09T15:44:51Z",
+      "identifier": "release-19.18.2-3.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.18.2-3.0.1 - YTLitePlus  09/05/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.18.2-3.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-04-27T21:46:28Z",
+      "identifier": "release-19.16.3-3.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.16.3-3.0.1 - YTLitePlus  27/04/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.16.3-3.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-04-13T00:56:22Z",
+      "identifier": "release-19.14.3-3.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.14.3-3.0.1 - YTLitePlus  13/04/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.14.3-3.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-03-27T22:03:09Z",
+      "identifier": "release-19.12.3-3.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.12.3-3.0.1 - YTLitePlus  27/03/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.12.3-3.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-03-11T20:30:06Z",
+      "identifier": "release-19.10.5-3.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.10.5-3.0.1 - YTLitePlus  11/03/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.10.5-3.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-03-07T16:56:14Z",
+      "identifier": "release-19.09.4-3.0.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.09.4-3.0.1 - YTLitePlus  07/03/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.09.4-3.0.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-03-06T21:13:24Z",
+      "identifier": "release-19.09.3-3.0",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.09.3-3.0 - YTLitePlus  06/03/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.09.3-3.0"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-03-04T17:57:06Z",
+      "identifier": "release-19.09.3-2.7",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.09.3-2.7 - YTLitePlus  04/03/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.09.3-2.7"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-02-28T12:23:18Z",
+      "identifier": "release-19.08.2-2.7",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.08.2-2.7 - YTLitePlus  28/02/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.08.2-2.7"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-02-21T09:19:09Z",
+      "identifier": "release-19.06.2-2.6.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.06.2-2.6.1 - YTLitePlus  21/02/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.06.2-2.6.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-02-19T09:12:36Z",
+      "identifier": "release-19.06.2-2.6",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.06.2-2.6 - YTLitePlus  19/02/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.06.2-2.6"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-02-17T16:53:30Z",
+      "identifier": "release-19.06.2-2.5",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.06.2-2.5 - YTLitePlus  17/02/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.06.2-2.5"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-02-13T19:53:48Z",
+      "identifier": "release-19.06.2-2.4.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.06.2-2.4.1 - YTLitePlus  13/02/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.06.2-2.4.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-02-07T07:47:40Z",
+      "identifier": "release-19.05.3-2.4.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.05.3-2.4.1 - YTLitePlus  07/02/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.05.3-2.4.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-01-31T21:22:30Z",
+      "identifier": "release-19.04.3-2.4.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.04.3-2.4.1 - YTLitePlus  31/01/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.04.3-2.4.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-01-26T13:44:53Z",
+      "identifier": "release-19.03.2-2.4.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.03.2-2.4.1 - YTLitePlus  26/01/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.03.2-2.4.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-01-17T11:39:30Z",
+      "identifier": "release-19.02.1-2.4",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.02.1-2.4 - YTLitePlus  17/01/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.02.1-2.4"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2024-01-13T10:48:20Z",
+      "identifier": "release-19.01.1-2.4",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "19.01.1-2.4 - YTLitePlus  13/01/24",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.01.1-2.4"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-12-24T15:23:46Z",
+      "identifier": "release-18.49.3-2.4",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.49.3-2.4 - YTLitePlus  24/12/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.49.3-2.4"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-12-05T17:48:34Z",
+      "identifier": "release-18.48.3-2.4",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.48.3-2.4 - YTLitePlus  05/12/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.48.3-2.4"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-11-26T19:56:16Z",
+      "identifier": "release-18.46.3-2.4",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.46.3-2.4 - YTLitePlus  26/11/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.46.3-2.4"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-11-14T12:29:59Z",
+      "identifier": "release-18.45.2-2.4",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.45.2-2.4 - YTLitePlus  14/11/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.45.2-2.4"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-11-10T20:09:24Z",
+      "identifier": "release-18.44.3-2.4",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.44.3-2.4 - YTLitePlus  10/11/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.44.3-2.4"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-10-18T15:00:51Z",
+      "identifier": "release-18.41.2-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.41.2-2.3.1 - YTLitePlus  18/10/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.41.2-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-10-10T11:28:41Z",
+      "identifier": "release-18.40.1-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.40.1-2.3.1 - YTLitePlus  10/10/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.40.1-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-10-05T21:39:55Z",
+      "identifier": "release-18.39.1-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.39.1-2.3.1 - YTLitePlus  05/10/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.39.1-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-09-26T21:57:57Z",
+      "identifier": "release-18.38.2-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.38.2-2.3.1 - YTLitePlus  26/09/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.38.2-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-09-08T13:04:14Z",
+      "identifier": "release-18.35.4-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.35.4-2.3.1 - YTLitePlus  08/09/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.35.4-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-09-06T08:46:25Z",
+      "identifier": "release-18.34.5-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.34.5-2.3.1 - YTLitePlus  06/09/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.34.5-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-08-30",
+      "identifier": "release-18.33.3-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.33.3-2.3.1 - YTLitePlus  30/08/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.33.3-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-08-27",
+      "identifier": "release-18.33.2-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.33.2-2.3.1 - YTLitePlus  27/08/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.33.2-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-08-26",
+      "identifier": "release-18.32.2-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.32.2-2.3.1 - YTLitePlus  26/08/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.32.2-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-08-10",
+      "identifier": "release-18.31.3-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.31.3-2.3.1 - YTLitePlus  10/08/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.31.3-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-07-31",
+      "identifier": "release-18.30.6-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.30.6-2.3.1 - YTLitePlus  31/07/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.30.6-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-07-29",
+      "identifier": "release-18.29.1-2.3.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.29.1-2.3.1 - YTLitePlus  29/07/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.29.1-2.3.1"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-07-27",
+      "identifier": "release-18.29.1-2.3",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.29.1-2.3 - YTLitePlus  27/07/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.29.1-2.3"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-07-17",
+      "identifier": "release-18.28.3-2.3",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.28.3-2.3 - YTLitePlus  17/07/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.28.3-2.3"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-07-15",
+      "identifier": "release-18.27.3-2.3",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.27.3-2.3 - YTLitePlus  15/07/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.27.3-2.3"
+    },
+    {
+      "appID": "com.google.ios.youtube.ytliteplus",
+      "caption": "Update of YTLitePlus just got released!",
+      "date": "2023-07-10",
+      "identifier": "release-18.27.3-2.2.1",
+      "imageURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/screenshots/news/new_release.png",
+      "notify": true,
+      "tintColor": "000000",
+      "title": "18.27.3-2.2.1 - YTLitePlus  10/07/23",
+      "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.27.3-2.2.1"
     }
   ]
-}
+}\n
