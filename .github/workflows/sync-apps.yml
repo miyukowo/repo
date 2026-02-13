@@ -79,7 +79,7 @@ jobs:
               date: v.date ? v.date.split('T')[0] : ''
             }));
 
-            return {
+            const result = {
               name: app.name,
               bundleIdentifier: bundleId,
               developerName: app.developerName,
@@ -90,12 +90,39 @@ jobs:
               screenshotURLs: screenshots,
               versions
             };
+
+            // Preserve appPermissions if present
+            if (app.appPermissions) {
+              result.appPermissions = app.appPermissions;
+            }
+
+            return result;
+          }
+
+          function generateNewsFromApp(app) {
+            // Generate news items from version updates
+            if (!app.versions || app.versions.length === 0) return [];
+
+            const latest = app.versions[0];
+            return [{
+              title: `${app.name} v${latest.version} Released`,
+              identifier: `${app.bundleIdentifier}-${latest.version}`.replace(/\./g, '-'),
+              caption: latest.localizedDescription
+                ? latest.localizedDescription.split('\n').filter(l => l.trim()).slice(0, 2).join(' ')
+                : `${app.name} has been updated to version ${latest.version}.`,
+              date: latest.date || '',
+              tintColor: (app.tintColor || '').replace('#', ''),
+              imageURL: '',
+              appID: app.bundleIdentifier,
+              notify: false
+            }];
           }
 
           async function main() {
             // Load current apps.json to preserve repo metadata
             const local = JSON.parse(readFileSync('apps.json', 'utf8'));
             const updatedApps = [];
+            const allNews = [];
 
             for (const source of SOURCES) {
               console.log(`Fetching: ${source.url}`);
@@ -108,16 +135,37 @@ jobs:
                   const normalized = normalizeApp(app, source.remap);
                   console.log(`  ✓ ${normalized.name} (${normalized.bundleIdentifier}) v${normalized.versions[0]?.version || '?'}`);
                   updatedApps.push(normalized);
+
+                  // Generate news from latest version
+                  const news = generateNewsFromApp(normalized);
+                  allNews.push(...news);
                 } else {
                   console.log(`  ✗ ${bundleId} not found in source`);
                 }
+              }
+
+              // Also sync any top-level news from the source
+              if (data.news && Array.isArray(data.news)) {
+                console.log(`  📰 Found ${data.news.length} news items from source`);
+                allNews.push(...data.news);
               }
             }
 
             if (updatedApps.length > 0) {
               local.apps = updatedApps;
+
+              // Deduplicate news by identifier
+              const newsMap = new Map();
+              allNews.forEach(item => {
+                if (item.identifier && !newsMap.has(item.identifier)) {
+                  newsMap.set(item.identifier, item);
+                }
+              });
+              local.news = Array.from(newsMap.values())
+                .sort((a, b) => new Date(b.date) - new Date(a.date));
+
               writeFileSync('apps.json', JSON.stringify(local, null, 2) + '\n');
-              console.log(`\nUpdated apps.json with ${updatedApps.length} apps`);
+              console.log(`\nUpdated apps.json with ${updatedApps.length} apps and ${local.news.length} news items`);
             } else {
               console.log('\nNo apps found, skipping update');
             }

@@ -38,7 +38,8 @@
         <span id="nav-brand-name">miyukowo's repo</span>
       </a>
       <div class="nav-right">
-        <a href="#apps" class="nav-link active">Apps</a>
+        <a href="#apps" class="nav-link active" data-nav="apps">Apps</a>
+        <a href="#news" class="nav-link" id="nav-news-link" data-nav="news" style="display:none">News</a>
         <a href="apps.json" class="nav-link" target="_blank">Source JSON</a>
         <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark theme">
           <span class="icon-sun">☀️</span>
@@ -92,6 +93,22 @@
     </div>
   </section>
 
+  <!-- News Section -->
+  <section class="news-section" id="news" style="display:none">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          News
+          <span class="section-count" id="news-count"></span>
+        </h2>
+        <div class="news-filters" id="news-filters">
+          <button class="news-filter-btn active" data-filter="all">All</button>
+        </div>
+      </div>
+      <div class="news-grid" id="news-grid"></div>
+    </div>
+  </section>
+
   <!-- App Detail Modal -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal">
@@ -120,10 +137,29 @@
           <div class="modal-description" id="modal-description"></div>
         </div>
 
+        <!-- Permissions & Privacy -->
+        <div class="modal-section" id="modal-permissions-section" style="display:none">
+          <div class="modal-section-title">App Privacy</div>
+          <div class="permissions-list" id="modal-permissions"></div>
+        </div>
+
+        <!-- Entitlements -->
+        <div class="modal-section" id="modal-entitlements-section" style="display:none">
+          <div class="modal-section-title">
+            Entitlements
+            <button class="entitlements-toggle" id="entitlements-toggle">Show</button>
+          </div>
+          <div class="entitlements-chips" id="modal-entitlements" style="display:none"></div>
+        </div>
+
         <!-- Versions / Changelog -->
         <div class="modal-section">
           <div class="modal-section-title">Version History</div>
           <div class="version-list" id="modal-versions"></div>
+          <div class="version-toggle-wrapper" id="version-toggle-wrapper" style="display:none">
+            <button class="version-toggle-btn liquid-glass" id="version-more-btn">Show More</button>
+            <button class="version-toggle-btn liquid-glass" id="version-less-btn" style="display:none">Show Less</button>
+          </div>
         </div>
 
         <!-- Download -->

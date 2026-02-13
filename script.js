@@ -98,6 +98,29 @@ function showToast(message) {
   setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
+// Permission usage description key → human-readable label + emoji
+const PERMISSION_LABELS = {
+  NSCameraUsageDescription: { icon: '📷', label: 'Camera' },
+  NSMicrophoneUsageDescription: { icon: '🎤', label: 'Microphone' },
+  NSPhotoLibraryUsageDescription: { icon: '🖼️', label: 'Photo Library' },
+  NSContactsUsageDescription: { icon: '👥', label: 'Contacts' },
+  NSLocationWhenInUseUsageDescription: { icon: '📍', label: 'Location' },
+  NSLocationAlwaysUsageDescription: { icon: '📍', label: 'Location (Always)' },
+  NSBluetoothPeripheralUsageDescription: { icon: '📡', label: 'Bluetooth' },
+  NSBluetoothAlwaysUsageDescription: { icon: '📡', label: 'Bluetooth' },
+  NSLocalNetworkUsageDescription: { icon: '🌐', label: 'Local Network' },
+  NSAppleMusicUsageDescription: { icon: '🎵', label: 'Apple Music' },
+  NSUserTrackingUsageDescription: { icon: '🔎', label: 'Tracking' },
+  NSSpeechRecognitionUsageDescription: { icon: '🗣️', label: 'Speech Recognition' },
+  NSCalendarsUsageDescription: { icon: '📅', label: 'Calendars' },
+  NSRemindersUsageDescription: { icon: '📝', label: 'Reminders' },
+  NSMotionUsageDescription: { icon: '🏃', label: 'Motion & Fitness' },
+  NSFaceIDUsageDescription: { icon: '🔐', label: 'Face ID' },
+  NSSiriUsageDescription: { icon: '🗣️', label: 'Siri' },
+  NSPhotoLibraryAddUsageDescription: { icon: '🖼️', label: 'Photo Library (Add)' },
+  NSHealthShareUsageDescription: { icon: '❤️', label: 'Health' },
+};
+
 // ===== Rendering =====
 function renderSideloadButtons() {
   const grid = document.getElementById('sideload-grid');
@@ -221,23 +244,11 @@ function openAppDetail(bundleId) {
     screenshotsSection.style.display = 'none';
   }
 
-  // Versions / Changelog
-  const versionsContainer = document.getElementById('modal-versions');
-  if (app.versions && app.versions.length > 0) {
-    versionsContainer.innerHTML = app.versions.map((v, i) => `
-      <div class="version-item">
-        <div class="version-item-header">
-          <span class="version-number">v${v.version}${i === 0 ? ' (Latest)' : ''}</span>
-          <span class="version-date">${formatDate(v.date)}</span>
-        </div>
-        ${v.localizedDescription ? `<div class="version-desc">${v.localizedDescription}</div>` : ''}
-        <div class="version-meta">
-          <span>${formatBytes(v.size)}</span>
-          ${v.minOSVersion ? `<span>iOS ${v.minOSVersion}+</span>` : ''}
-        </div>
-      </div>
-    `).join('');
-  }
+  // Permissions & Privacy
+  renderPermissions(app);
+
+  // Versions / Changelog — paginated
+  renderVersionsPaginated(app);
 
   // Download button
   const downloadBtn = document.getElementById('modal-download-btn');
@@ -252,6 +263,115 @@ function openAppDetail(bundleId) {
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
+
+// ===== Permissions Rendering =====
+function renderPermissions(app) {
+  const permsSection = document.getElementById('modal-permissions-section');
+  const permsContainer = document.getElementById('modal-permissions');
+  const entsSection = document.getElementById('modal-entitlements-section');
+  const entsContainer = document.getElementById('modal-entitlements');
+  const entsToggle = document.getElementById('entitlements-toggle');
+
+  const perms = app.appPermissions;
+  if (!perms) {
+    permsSection.style.display = 'none';
+    entsSection.style.display = 'none';
+    return;
+  }
+
+  // Privacy descriptions
+  if (perms.privacy && Object.keys(perms.privacy).length > 0) {
+    permsSection.style.display = 'block';
+    permsContainer.innerHTML = Object.entries(perms.privacy).map(([key, desc]) => {
+      const info = PERMISSION_LABELS[key] || { icon: '🔒', label: key.replace(/^NS|UsageDescription$/g, '').replace(/([A-Z])/g, ' $1').trim() };
+      return `
+        <div class="permission-item">
+          <span class="permission-icon">${info.icon}</span>
+          <div class="permission-info">
+            <div class="permission-label">${info.label}</div>
+            <div class="permission-desc">${desc}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } else {
+    permsSection.style.display = 'none';
+  }
+
+  // Entitlements
+  if (perms.entitlements && perms.entitlements.length > 0) {
+    entsSection.style.display = 'block';
+    entsContainer.style.display = 'none';
+    entsToggle.textContent = 'Show';
+    entsContainer.innerHTML = perms.entitlements.map(ent => {
+      const shortName = ent.split('.').pop();
+      return `<span class="entitlement-chip" title="${ent}">${shortName}</span>`;
+    }).join('');
+
+    entsToggle.onclick = () => {
+      const isHidden = entsContainer.style.display === 'none';
+      entsContainer.style.display = isHidden ? 'flex' : 'none';
+      entsToggle.textContent = isHidden ? 'Hide' : 'Show';
+    };
+  } else {
+    entsSection.style.display = 'none';
+  }
+}
+
+// ===== Paginated Version History =====
+const VERSIONS_PER_PAGE = 3;
+let currentVersionCount = VERSIONS_PER_PAGE;
+
+function renderVersionsPaginated(app) {
+  const container = document.getElementById('modal-versions');
+  const wrapper = document.getElementById('version-toggle-wrapper');
+  const moreBtn = document.getElementById('version-more-btn');
+  const lessBtn = document.getElementById('version-less-btn');
+  const versions = app.versions || [];
+
+  currentVersionCount = VERSIONS_PER_PAGE;
+
+  function render() {
+    const visible = versions.slice(0, currentVersionCount);
+    container.innerHTML = visible.map((v, i) => `
+      <div class="version-item">
+        <div class="version-item-header">
+          <span class="version-number">v${v.version}${i === 0 ? ' (Latest)' : ''}</span>
+          <span class="version-date">${formatDate(v.date)}</span>
+        </div>
+        ${v.localizedDescription ? `<div class="version-desc">${v.localizedDescription}</div>` : ''}
+        <div class="version-meta">
+          <span>${formatBytes(v.size)}</span>
+          ${v.minOSVersion ? `<span>iOS ${v.minOSVersion}+</span>` : ''}
+        </div>
+      </div>
+    `).join('');
+
+    // Show/hide buttons
+    if (versions.length > VERSIONS_PER_PAGE) {
+      wrapper.style.display = 'flex';
+      moreBtn.style.display = currentVersionCount < versions.length ? 'inline-flex' : 'none';
+      lessBtn.style.display = currentVersionCount > VERSIONS_PER_PAGE ? 'inline-flex' : 'none';
+    } else {
+      wrapper.style.display = 'none';
+    }
+  }
+
+  moreBtn.onclick = () => {
+    currentVersionCount = Math.min(currentVersionCount + VERSIONS_PER_PAGE, versions.length);
+    render();
+  };
+
+  lessBtn.onclick = () => {
+    currentVersionCount = VERSIONS_PER_PAGE;
+    render();
+    // Scroll version section into view
+    document.getElementById('modal-versions').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  };
+
+  render();
+}
+
 
 function closeModal() {
   const overlay = document.getElementById('modal-overlay');
@@ -309,12 +429,112 @@ function initNavScroll() {
   });
 }
 
+// ===== News Rendering =====
+function renderNews(newsItems, filter = 'all') {
+  const grid = document.getElementById('news-grid');
+  if (!newsItems || newsItems.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state" style="grid-column: 1 / -1">
+        <div class="empty-state-icon">📰</div>
+        <div class="empty-state-text">No news yet.</div>
+      </div>`;
+    return;
+  }
+
+  let filtered = newsItems;
+  if (filter !== 'all') {
+    filtered = newsItems.filter(n => {
+      if (n._filterGroup) return n._filterGroup === filter;
+      return false;
+    });
+  }
+
+  // Sort by date descending
+  filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  document.getElementById('news-count').textContent = `(${filtered.length})`;
+
+  grid.innerHTML = filtered.map(news => {
+    const tintColor = news.tintColor ? `#${news.tintColor.replace('#', '')}` : '#a855f7';
+    const appIcon = news._appIcon || '';
+    const appName = news._appName || '';
+    return `
+      <div class="news-card liquid-glass"${news.url ? ` onclick="window.open('${news.url}', '_blank')"` : ''} style="cursor:${news.url ? 'pointer' : 'default'}">
+        ${news.imageURL ? `<div class="news-image"><img src="${news.imageURL}" alt="${news.title}" loading="lazy"></div>` : ''}
+        <div class="news-card-body">
+          <div class="news-card-meta">
+            ${appIcon ? `<img src="${appIcon}" alt="${appName}" class="news-app-icon">` : ''}
+            <span class="news-app-name">${appName}</span>
+            <span class="news-date">${formatDate(news.date)}</span>
+          </div>
+          <div class="news-title">${news.title}</div>
+          ${news.caption ? `<div class="news-caption">${news.caption}</div>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function setupNewsFilters(newsItems) {
+  const filtersContainer = document.getElementById('news-filters');
+  if (!newsItems || newsItems.length === 0) return;
+
+  // Extract unique filter groups
+  const groups = new Map();
+  newsItems.forEach(n => {
+    if (n._filterGroup && !groups.has(n._filterGroup)) {
+      groups.set(n._filterGroup, n._appName || n._filterGroup);
+    }
+  });
+
+  // Build filter buttons
+  let html = '<button class="news-filter-btn active" data-filter="all">All</button>';
+  groups.forEach((label, key) => {
+    html += `<button class="news-filter-btn" data-filter="${key}">${label}</button>`;
+  });
+  filtersContainer.innerHTML = html;
+
+  // Click handlers
+  filtersContainer.querySelectorAll('.news-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      filtersContainer.querySelectorAll('.news-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderNews(newsItems, btn.dataset.filter);
+    });
+  });
+}
+
+// ===== Nav Section Toggle =====
+function setupNavSections() {
+  document.querySelectorAll('.nav-link[data-nav]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = link.dataset.nav;
+
+      // Update active state
+      document.querySelectorAll('.nav-link[data-nav]').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+
+      // Toggle sections
+      document.getElementById('apps').style.display = target === 'apps' ? '' : 'none';
+      const heroSection = document.querySelector('.hero');
+      if (heroSection) heroSection.style.display = target === 'apps' ? '' : 'none';
+      const newsSection = document.getElementById('news');
+      if (newsSection) newsSection.style.display = target === 'news' ? '' : 'none';
+
+      // Scroll to top of section
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+}
+
 // ===== Initialize =====
 async function init() {
   // Theme MUST be initialized before anything else to prevent flash
   initTheme();
   initNavScroll();
   renderSideloadButtons();
+  setupNavSections();
 
   // Theme toggle
   document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
@@ -363,6 +583,25 @@ async function init() {
     }
 
     renderApps(sourceData.apps);
+
+    // News
+    if (sourceData.news && sourceData.news.length > 0) {
+      // Enrich news items with app info for filtering
+      const enrichedNews = sourceData.news.map(item => {
+        const linkedApp = item.appID ? sourceData.apps.find(a => a.bundleIdentifier === item.appID) : null;
+        return {
+          ...item,
+          _appName: linkedApp ? linkedApp.name : (item.appID || 'General'),
+          _appIcon: linkedApp ? linkedApp.iconURL : '',
+          _filterGroup: linkedApp ? linkedApp.name : (item.appID || 'General')
+        };
+      });
+
+      document.getElementById('nav-news-link').style.display = '';
+      document.getElementById('news').style.display = 'none'; // hidden until clicked
+      setupNewsFilters(enrichedNews);
+      renderNews(enrichedNews);
+    }
   } catch (error) {
     console.error('Failed to load apps:', error);
     document.getElementById('apps-grid').innerHTML = `
