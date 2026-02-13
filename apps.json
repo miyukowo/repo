@@ -1,0 +1,84 @@
+{
+  "name": "Phus's Repo",
+  "identifier": "com.tvphus.repo",
+  "subtitle": "A curated collection of sideloaded apps",
+  "description": "Welcome to Phus's Repo — your go-to AltStore/SideStore source for curated iOS apps and tweaks.",
+  "iconURL": "https://raw.githubusercontent.com/tvphus/repo/main/assets/icon.png",
+  "headerURL": "https://raw.githubusercontent.com/tvphus/repo/main/assets/header.png",
+  "website": "https://tvphus.github.io/repo/",
+  "tintColor": "6C5CE7",
+  "featuredApps": [
+    "com.example.app1"
+  ],
+  "apps": [
+    {
+      "name": "Example App",
+      "bundleIdentifier": "com.example.app1",
+      "developerName": "Phus",
+      "subtitle": "An awesome sideloaded app",
+      "localizedDescription": "This is a sample app entry in the repo. Replace this with your real app details.\n\nFeatures:\n• Feature one\n• Feature two\n• Feature three",
+      "iconURL": "https://raw.githubusercontent.com/tvphus/repo/main/assets/apps/example-icon.png",
+      "tintColor": "6C5CE7",
+      "screenshotURLs": [
+        "https://raw.githubusercontent.com/tvphus/repo/main/assets/apps/example-screenshot1.png",
+        "https://raw.githubusercontent.com/tvphus/repo/main/assets/apps/example-screenshot2.png"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-02-14",
+          "localizedDescription": "Initial release",
+          "downloadURL": "https://github.com/tvphus/repo/releases/download/v1.0.0/ExampleApp.ipa",
+          "size": 10000000,
+          "minOSVersion": "15.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      }
+    },
+    {
+      "name": "Another App",
+      "bundleIdentifier": "com.example.app2",
+      "developerName": "Phus",
+      "subtitle": "A second sample app",
+      "localizedDescription": "Another sample app for demonstration purposes. Replace with your real app.\n\nChangelog:\n• Bug fixes\n• Performance improvements",
+      "iconURL": "https://raw.githubusercontent.com/tvphus/repo/main/assets/apps/another-icon.png",
+      "tintColor": "00B894",
+      "screenshotURLs": [],
+      "versions": [
+        {
+          "version": "2.1.0",
+          "date": "2026-02-10",
+          "localizedDescription": "Version 2.1 with new features",
+          "downloadURL": "https://github.com/tvphus/repo/releases/download/v2.1.0/AnotherApp.ipa",
+          "size": 25000000,
+          "minOSVersion": "16.0"
+        },
+        {
+          "version": "2.0.0",
+          "date": "2026-01-15",
+          "localizedDescription": "Major update",
+          "downloadURL": "https://github.com/tvphus/repo/releases/download/v2.0.0/AnotherApp.ipa",
+          "size": 24000000,
+          "minOSVersion": "16.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      }
+    }
+  ],
+  "news": [
+    {
+      "title": "Welcome to Phus's Repo!",
+      "identifier": "welcome-news",
+      "caption": "Your new source for sideloaded apps is here.",
+      "date": "2026-02-14",
+      "tintColor": "6C5CE7",
+      "notify": false
+    }
+  ]
+}

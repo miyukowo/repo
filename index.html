@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phus's Repo</title>
+  <meta name="description" content="A curated collection of sideloaded apps for AltStore, SideStore, and Feather.">
+  <meta name="theme-color" content="#0a0a1a">
+  <meta property="og:title" content="Phus's Repo">
+  <meta property="og:description" content="A curated collection of sideloaded apps for AltStore, SideStore, and Feather.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background effects -->
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <div class="nav-brand-icon">📦</div>
+        <span id="nav-brand-name">Phus's Repo</span>
+      </a>
+      <div class="nav-links">
+        <a href="#apps" class="nav-link active">Apps</a>
+        <a href="apps.json" class="nav-link" target="_blank">Source JSON</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        AltStore / SideStore Source
+      </div>
+      <h1 id="hero-title">Phus's Repo</h1>
+      <p class="hero-subtitle" id="hero-subtitle">A curated collection of sideloaded apps. Add this source to your favorite sideloading app.</p>
+
+      <!-- Sideloading Buttons -->
+      <div class="sideload-section">
+        <div class="sideload-grid" id="sideload-grid">
+          <!-- Buttons will be rendered by JS -->
+        </div>
+        <div style="text-align: center; margin-top: 12px;">
+          <button class="copy-btn" id="copy-btn">📋 Copy Source URL</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apps Section -->
+  <section class="apps-section" id="apps">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Apps
+          <span class="section-count" id="apps-count"></span>
+        </h2>
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="search-input" placeholder="Search apps...">
+        </div>
+      </div>
+      <div class="apps-grid" id="apps-grid">
+        <!-- App cards will be rendered by JS -->
+        <div class="empty-state" style="grid-column: 1 / -1">
+          <div class="empty-state-icon">⏳</div>
+          <div class="empty-state-text">Loading apps...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Detail Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="modal-close" id="modal-close">✕</button>
+        <div class="modal-app-header">
+          <img src="" alt="" class="modal-app-icon" id="modal-app-icon">
+          <div class="modal-app-icon-placeholder" id="modal-app-icon-placeholder" style="display:none"></div>
+          <div class="modal-app-info">
+            <div class="modal-app-name" id="modal-app-name"></div>
+            <div class="modal-app-developer" id="modal-app-developer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <!-- Screenshots -->
+        <div class="modal-section" id="modal-screenshots-section" style="display:none">
+          <div class="modal-section-title">Screenshots</div>
+          <div class="screenshots-scroll" id="modal-screenshots"></div>
+        </div>
+
+        <!-- Description -->
+        <div class="modal-section">
+          <div class="modal-section-title">Description</div>
+          <div class="modal-description" id="modal-description"></div>
+        </div>
+
+        <!-- Versions -->
+        <div class="modal-section">
+          <div class="modal-section-title">Version History</div>
+          <div class="version-list" id="modal-versions"></div>
+        </div>
+
+        <!-- Download -->
+        <a href="#" class="modal-download-btn" id="modal-download-btn" target="_blank" rel="noopener">
+          ⬇ Download IPA
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Made with ❤️ &mdash; Add this source to <a href="#">AltStore</a>, <a href="#">SideStore</a>, or <a href="#">Feather</a></p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
