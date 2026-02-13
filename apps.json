@@ -2,9 +2,9 @@
   "name": "miyukowo's repo",
   "subtitle": "Curated sideloaded apps",
   "description": "A curated collection of sideloaded apps for AltStore, SideStore, and Feather.",
-  "iconURL": "",
+  "iconURL": "https://raw.githubusercontent.com/miyukowo/static/refs/heads/main/marine.png",
   "headerURL": "",
-  "website": "https://github.com/miyukowo",
+  "website": "https://repo.tvphus.dev",
   "tintColor": "#A855F7",
   "featuredApps": [
     "com.google.ios.youtube",
