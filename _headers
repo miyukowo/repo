@@ -1,5 +1,4 @@
-/*
-  apps.json
-    Access-Control-Allow-Origin: *
-    Access-Control-Allow-Methods: GET
-    Content-Type: application/json
+/apps.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET
+  Content-Type: application/json
