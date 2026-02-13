@@ -3,7 +3,6 @@
   "subtitle": "Curated sideloaded apps",
   "description": "A curated collection of sideloaded apps for AltStore, SideStore, and Feather.",
   "iconURL": "https://raw.githubusercontent.com/miyukowo/static/refs/heads/main/marine.png",
-  "headerURL": "",
   "website": "https://repo.tvphus.dev",
   "tintColor": "#A855F7",
   "featuredApps": [
