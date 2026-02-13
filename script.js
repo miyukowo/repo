@@ -335,9 +335,18 @@ async function init() {
 
   // Fetch apps
   try {
-    const response = await fetch(CONFIG.sourceURL);
+    const response = await fetch(CONFIG.sourceURL, {
+      headers: { 'Accept': 'application/json' }
+    });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    sourceData = await response.json();
+
+    // Validate we got JSON, not an HTML fallback page
+    const contentType = response.headers.get('content-type') || '';
+    const text = await response.text();
+    if (text.trimStart().startsWith('<!') || text.trimStart().startsWith('<html')) {
+      throw new Error('Received HTML instead of JSON. Check that apps.json is deployed correctly.');
+    }
+    sourceData = JSON.parse(text);
 
     // Update page content from JSON
     if (sourceData.name) {
