@@ -679,8 +679,12 @@ body {
   border-top: 1px solid var(--glass-border);
 }
 
-.app-size {
+.app-meta {
   font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.app-date {
   color: var(--text-muted);
 }
 
@@ -1097,6 +1101,10 @@ body {
   }
 
   .nav-link {
+    display: none;
+  }
+
+  .app-date {
     display: none;
   }
 }

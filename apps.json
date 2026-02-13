@@ -145,6 +145,35 @@
           "localizedDescription": "- Initial release"
         }
       ]
+    },
+    {
+      "name": "YTLitePlus",
+      "bundleIdentifier": "com.google.ios.youtube.ytliteplus",
+      "developerName": "Various Developers",
+      "subtitle": "YTLite with more features!",
+      "localizedDescription": "YTLitePlus is an enhanced Youtube app that offers a superior Youtube experience, combining YTLite (by @dayanch96) with numerous other tweaks:\n\n• YTLite\n• YTUHD\n• YouPiP\n• YTABConfig\n• YouMute\n• DontEatMyContent\n• Return YouTube Dislikes\n• iSponsorBlock\n• YouRememberCaption\n• YTNoTracking\n• YTUnShorts\n• YTNoCheckLocalNetwork\n• BigYTMiniPlayer\n• YTSpeed\n• YTHoldForSpeed\n• YTVideoOverlay\n• YouQuality\n• YTNoModernUI\n• OLEDDarkmode\n• OLDDarkmode\n• LowContrastMode\n• YTNoSuggestedVideo",
+      "iconURL": "https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/Youtube_logo-512.png",
+      "tintColor": "E22A41",
+      "screenshotURLs": [
+        "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/1.png",
+        "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/2.png",
+        "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/3.png",
+        "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/4.png",
+        "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/5.png",
+        "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/6.png",
+        "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/7.png",
+        "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/8.png",
+        "https://raw.githubusercontent.com/YTLitePlus/Assets/main/Screenshots/9.png"
+      ],
+      "versions": [
+        {
+          "version": "19.34.2",
+          "date": "2024-09-03",
+          "size": 111020044,
+          "downloadURL": "https://files.catbox.moe/z8jg5n.ipa",
+          "localizedDescription": "RELEASE 19.34.2•5.0.1: (2024‒09‒03)\n\n• Updated Youtube from \"19.32.6\" to \"19.34.2\"\n• Updated YTLite from \"4.0.1\" to \"5.0.1\"\n\nIssues in this Release:\n• Touches will not work while bypassing startup popup\n• LowContrastMode does not work (Compatible only with YouTube v17.33.2•v17.38.10)"
+        }
+      ]
     }
   ]
 }

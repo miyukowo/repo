@@ -1,0 +1,146 @@
+name: Sync Apps from Upstream Sources
+
+on:
+  schedule:
+    # Runs daily at 06:00 UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Allow manual trigger from Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sync apps from upstream sources
+        run: |
+          cat > sync.mjs << 'SCRIPT'
+          import { readFileSync, writeFileSync } from 'fs';
+
+          // Upstream sources and which apps to pull from each
+          const SOURCES = [
+            {
+              url: 'https://raw.githubusercontent.com/dvntm0/AltStore/refs/heads/main/repo.json',
+              apps: [
+                'com.google.ios.youtube',       // YouTube Plus
+                'com.google.ios.youtubemusic',  // YouTube Music Ultimate
+                'com.firecore.infuse',          // Infuse Plus
+                'com.facebook.Facebook',        // Glow for Facebook
+                'com.facebook.Messenger'        // Flow for Messenger
+              ]
+            },
+            {
+              url: 'https://raw.githubusercontent.com/YTLitePlus/YTLitePlus-Altstore/main/apps.json',
+              apps: [
+                'com.google.ios.youtube'        // YTLitePlus (remapped below)
+              ],
+              // Remap bundle ID to avoid conflict with YouTube Plus from dvntm0
+              remap: {
+                'com.google.ios.youtube': 'com.google.ios.youtube.ytliteplus'
+              }
+            }
+          ];
+
+          async function fetchJSON(url) {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
+            return res.json();
+          }
+
+          function normalizeApp(app, remap) {
+            // Normalize to our standard format
+            const bundleId = remap?.[app.bundleIdentifier] || app.bundleIdentifier;
+            
+            // Normalize screenshots field name (some use 'screenshots', others 'screenshotURLs')
+            const screenshots = app.screenshotURLs || app.screenshots || [];
+            
+            // Normalize versions
+            let versions = app.versions || [];
+            if (versions.length === 0 && app.version) {
+              // Some sources use flat version fields instead of versions array
+              versions = [{
+                version: app.version,
+                date: app.versionDate || app.date || '',
+                size: app.size || 0,
+                downloadURL: app.downloadURL || '',
+                localizedDescription: app.versionDescription || ''
+              }];
+            }
+
+            // Normalize version dates to YYYY-MM-DD
+            versions = versions.map(v => ({
+              ...v,
+              date: v.date ? v.date.split('T')[0] : ''
+            }));
+
+            return {
+              name: app.name,
+              bundleIdentifier: bundleId,
+              developerName: app.developerName,
+              subtitle: app.subtitle || '',
+              localizedDescription: app.localizedDescription || '',
+              iconURL: app.iconURL || '',
+              tintColor: (app.tintColor || '').replace('#', ''),
+              screenshotURLs: screenshots,
+              versions
+            };
+          }
+
+          async function main() {
+            // Load current apps.json to preserve repo metadata
+            const local = JSON.parse(readFileSync('apps.json', 'utf8'));
+            const updatedApps = [];
+
+            for (const source of SOURCES) {
+              console.log(`Fetching: ${source.url}`);
+              const data = await fetchJSON(source.url);
+              const apps = data.apps || [];
+
+              for (const bundleId of source.apps) {
+                const app = apps.find(a => a.bundleIdentifier === bundleId);
+                if (app) {
+                  const normalized = normalizeApp(app, source.remap);
+                  console.log(`  ✓ ${normalized.name} (${normalized.bundleIdentifier}) v${normalized.versions[0]?.version || '?'}`);
+                  updatedApps.push(normalized);
+                } else {
+                  console.log(`  ✗ ${bundleId} not found in source`);
+                }
+              }
+            }
+
+            if (updatedApps.length > 0) {
+              local.apps = updatedApps;
+              writeFileSync('apps.json', JSON.stringify(local, null, 2) + '\n');
+              console.log(`\nUpdated apps.json with ${updatedApps.length} apps`);
+            } else {
+              console.log('\nNo apps found, skipping update');
+            }
+          }
+
+          main().catch(err => {
+            console.error(err);
+            process.exit(1);
+          });
+          SCRIPT
+
+          node sync.mjs
+
+      - name: Check for changes
+        id: diff
+        run: |
+          git diff --quiet apps.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add apps.json
+          git commit -m "chore: auto-sync apps from upstream sources"
+          git push

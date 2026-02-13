@@ -116,11 +116,14 @@ function renderAppCard(app) {
   const latestVersion = app.versions && app.versions[0];
   const size = latestVersion ? formatBytes(latestVersion.size) : '';
   const version = latestVersion ? latestVersion.version : '';
+  const date = latestVersion && latestVersion.date ? formatDate(latestVersion.date) : '';
 
   const iconHTML = app.iconURL
     ? `<img src="${app.iconURL}" alt="${app.name}" class="app-icon" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
        <div class="app-icon-placeholder" style="background:${color};display:none">${app.name.charAt(0)}</div>`
     : `<div class="app-icon-placeholder" style="background:${color}">${app.name.charAt(0)}</div>`;
+
+  const metaText = [size, date].filter(Boolean).join(' | ');
 
   return `
     <div class="app-card liquid-glass" data-bundle="${app.bundleIdentifier}" onclick="openAppDetail('${app.bundleIdentifier}')">
@@ -134,7 +137,7 @@ function renderAppCard(app) {
       </div>
       <div class="app-subtitle">${app.subtitle || app.localizedDescription?.substring(0, 100) || ''}</div>
       <div class="app-card-footer">
-        <span class="app-size">${size}</span>
+        <span class="app-meta"><span class="app-size">${size}</span>${date ? `<span class="app-date"> | ${date}</span>` : ''}</span>
         <button class="app-get-btn" style="background:${color}" onclick="event.stopPropagation();openAppDetail('${app.bundleIdentifier}')">GET</button>
       </div>
     </div>
