@@ -660,51 +660,56 @@
   "news": [
     {
       "title": "YouTube Plus v20.42.3 Released",
-      "identifier": "com.google.ios.youtube-20.42.3",
-      "caption": "YouTube Plus v5.2b4\n\n- Fixed Shorts overlay issues\n- Fixed playback issues\n- Fixed 'Hold to speed' gesture in Shorts\n- Fixed big gap under progress bar when action bar is disabled\n- Fixed colored progress bar issues (now supports gradient color for watched progress)\n- Fixed issue where some buttons under the player were not hiding\n- Fixed transparent background in the 'Explore' sidebar\n- Fixed hiding options in YouTube sheet and added ability to hide the 'Feedback' element\n- Fixed crash on live videos when original captions were set as preferred\n- Fixed 'Remember loop mode' not saving correctly\n- Added option to hide 'Hype' and 'Stop Ads' buttons under the player\n- Added option to hide YouTube snackbars (HUD messages in player)\n- Added option to hide Products in Shorts\n- Added option to remove Comment bar in Shorts\n- Added option to remove Audio button in Shorts\n- Added option to exclude auto-dubbed audio tracks from selection\n- Added 'Tap to seek gesture' in Player settings\n- Added system theme support for YTPlus player toast (playback speed, brightness, volume)\n- Removed vibrancy effect from YTPlus player toast\n- Enabling iPad-style interface now also enables floating keyboard",
+      "identifier": "com-google-ios-youtube-20-42-3",
+      "caption": "YouTube Plus v5.2b4 - Fixed Shorts overlay issues",
       "date": "2025-11-05",
       "tintColor": "E36678",
+      "imageURL": "",
       "appID": "com.google.ios.youtube",
       "notify": false
     },
     {
       "title": "Infuse Plus v8.2.4 Released",
-      "identifier": "com.firecore.infuse-8.2.4",
-      "caption": "Infuse Plus v2.4.1\n\n- Removed vibrancy effect of player toast, now toast follows system theme\n- Added option to automatically clean Infuse trash folder",
+      "identifier": "com-firecore-infuse-8-2-4",
+      "caption": "Infuse Plus v2.4.1 - Removed vibrancy effect of player toast, now toast follows system theme",
       "date": "2025-09-03",
       "tintColor": "FF8800",
+      "imageURL": "",
       "appID": "com.firecore.infuse",
       "notify": false
     },
     {
       "title": "Glow for Facebook v519.0.0 Released",
-      "identifier": "com.facebook.Facebook-519.0.0",
-      "caption": "Glow v1.3.1\n- Faster video re-encoding by improved audio processing\n- Added support for Turkish language",
+      "identifier": "com-facebook-Facebook-519-0-0",
+      "caption": "Glow v1.3.1 - Faster video re-encoding by improved audio processing",
       "date": "2025-06-25",
       "tintColor": "B5DAFC",
+      "imageURL": "",
       "appID": "com.facebook.Facebook",
       "notify": false
     },
     {
       "title": "Flow for Messenger v511.0.0 Released",
-      "identifier": "com.facebook.Messenger-511.0.0",
+      "identifier": "com-facebook-Messenger-511-0-0",
       "caption": "- Initial release",
       "date": "2025-06-14",
       "tintColor": "AF38EB",
+      "imageURL": "",
       "appID": "com.facebook.Messenger",
       "notify": false
     },
     {
       "title": "YouTube Music Ultimate v7.33.2 Released",
-      "identifier": "com.google.ios.youtubemusic-7.33.2",
-      "caption": "YouTube Music Ultimate v2.3.1\n\n- Fixed downloads tab not working\n- Fixed local network permissions",
+      "identifier": "com-google-ios-youtubemusic-7-33-2",
+      "caption": "YouTube Music Ultimate v2.3.1 - Fixed downloads tab not working",
       "date": "2025-01-09",
       "tintColor": "FF0033",
+      "imageURL": "",
       "appID": "com.google.ios.youtubemusic",
       "notify": false
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-09-03T05:09:38Z",
       "identifier": "release-19.34.2-5.0.1",
@@ -716,15 +721,16 @@
     },
     {
       "title": "YTLitePlus v19.34.2 Released",
-      "identifier": "com.google.ios.youtube.ytliteplus-19.34.2",
-      "caption": "Current YouTube IPA: \"19.34.2\"  \r\nCurrent YTLite Version: \"5.0.1\"  \r\nCurrent App Compatibility: \"iOS/iPadOS 15.0\" or later\r\n\r\nRELEASE 19.34.2•5.0.1: (2024•09•03)\r\n\r\n• Updated Youtube from \"19.32.6\" to \"19.34.2\"\r\n• Updated YTLite from \"4.0.1\" to \"5.0.1\"\r\n\r\nIssues in this Release:\r\n• Touches will not work while bypassing startup popup\r\n• LowContrastMode does not work *(Compatible only with YouTube v17.33.2•v17.38.10)*\r\n\r\nCatbox\r\n\"z8jg5n.ipa\"",
+      "identifier": "com-google-ios-youtube-ytliteplus-19-34-2",
+      "caption": "Current YouTube IPA: \"19.34.2\"  \r Current YTLite Version: \"5.0.1\"  \r",
       "date": "2024-09-03",
       "tintColor": "e22a41",
+      "imageURL": "",
       "appID": "com.google.ios.youtube.ytliteplus",
       "notify": false
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-08-14T02:21:01Z",
       "identifier": "release-19.32.6-4.0.1",
@@ -735,7 +741,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.32.6-4.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-07-22T20:19:48Z",
       "identifier": "release-19.29.1-4.0.1",
@@ -746,7 +752,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.29.1-4.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-06-10T21:49:59Z",
       "identifier": "release-19.23.3-4.0.1",
@@ -757,7 +763,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.23.3-4.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-06-09T19:17:30Z",
       "identifier": "release-19.22.6-4.0.1",
@@ -768,7 +774,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.22.6-4.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-06-03T01:57:21Z",
       "identifier": "release-19.21.3-4.0",
@@ -779,7 +785,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.21.3-4.0"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-05-09T15:44:51Z",
       "identifier": "release-19.18.2-3.0.1",
@@ -790,7 +796,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.18.2-3.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-04-27T21:46:28Z",
       "identifier": "release-19.16.3-3.0.1",
@@ -801,7 +807,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.16.3-3.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-04-13T00:56:22Z",
       "identifier": "release-19.14.3-3.0.1",
@@ -812,7 +818,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.14.3-3.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-03-27T22:03:09Z",
       "identifier": "release-19.12.3-3.0.1",
@@ -823,7 +829,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.12.3-3.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-03-11T20:30:06Z",
       "identifier": "release-19.10.5-3.0.1",
@@ -834,7 +840,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.10.5-3.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-03-07T16:56:14Z",
       "identifier": "release-19.09.4-3.0.1",
@@ -845,7 +851,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.09.4-3.0.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-03-06T21:13:24Z",
       "identifier": "release-19.09.3-3.0",
@@ -856,7 +862,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.09.3-3.0"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-03-04T17:57:06Z",
       "identifier": "release-19.09.3-2.7",
@@ -867,7 +873,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.09.3-2.7"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-02-28T12:23:18Z",
       "identifier": "release-19.08.2-2.7",
@@ -878,7 +884,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.08.2-2.7"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-02-21T09:19:09Z",
       "identifier": "release-19.06.2-2.6.1",
@@ -889,7 +895,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.06.2-2.6.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-02-19T09:12:36Z",
       "identifier": "release-19.06.2-2.6",
@@ -900,7 +906,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.06.2-2.6"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-02-17T16:53:30Z",
       "identifier": "release-19.06.2-2.5",
@@ -911,7 +917,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.06.2-2.5"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-02-13T19:53:48Z",
       "identifier": "release-19.06.2-2.4.1",
@@ -922,7 +928,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.06.2-2.4.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-02-07T07:47:40Z",
       "identifier": "release-19.05.3-2.4.1",
@@ -933,7 +939,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.05.3-2.4.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-01-31T21:22:30Z",
       "identifier": "release-19.04.3-2.4.1",
@@ -944,7 +950,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.04.3-2.4.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-01-26T13:44:53Z",
       "identifier": "release-19.03.2-2.4.1",
@@ -955,7 +961,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.03.2-2.4.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-01-17T11:39:30Z",
       "identifier": "release-19.02.1-2.4",
@@ -966,7 +972,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.02.1-2.4"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2024-01-13T10:48:20Z",
       "identifier": "release-19.01.1-2.4",
@@ -977,7 +983,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v19.01.1-2.4"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-12-24T15:23:46Z",
       "identifier": "release-18.49.3-2.4",
@@ -988,7 +994,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.49.3-2.4"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-12-05T17:48:34Z",
       "identifier": "release-18.48.3-2.4",
@@ -999,7 +1005,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.48.3-2.4"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-11-26T19:56:16Z",
       "identifier": "release-18.46.3-2.4",
@@ -1010,7 +1016,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.46.3-2.4"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-11-14T12:29:59Z",
       "identifier": "release-18.45.2-2.4",
@@ -1021,7 +1027,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.45.2-2.4"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-11-10T20:09:24Z",
       "identifier": "release-18.44.3-2.4",
@@ -1032,7 +1038,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.44.3-2.4"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-10-18T15:00:51Z",
       "identifier": "release-18.41.2-2.3.1",
@@ -1043,7 +1049,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.41.2-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-10-10T11:28:41Z",
       "identifier": "release-18.40.1-2.3.1",
@@ -1054,7 +1060,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.40.1-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-10-05T21:39:55Z",
       "identifier": "release-18.39.1-2.3.1",
@@ -1065,7 +1071,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.39.1-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-09-26T21:57:57Z",
       "identifier": "release-18.38.2-2.3.1",
@@ -1076,7 +1082,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.38.2-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-09-08T13:04:14Z",
       "identifier": "release-18.35.4-2.3.1",
@@ -1087,7 +1093,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.35.4-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-09-06T08:46:25Z",
       "identifier": "release-18.34.5-2.3.1",
@@ -1098,7 +1104,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.34.5-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-08-30",
       "identifier": "release-18.33.3-2.3.1",
@@ -1109,7 +1115,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.33.3-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-08-27",
       "identifier": "release-18.33.2-2.3.1",
@@ -1120,7 +1126,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.33.2-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-08-26",
       "identifier": "release-18.32.2-2.3.1",
@@ -1131,7 +1137,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.32.2-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-08-10",
       "identifier": "release-18.31.3-2.3.1",
@@ -1142,7 +1148,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.31.3-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-07-31",
       "identifier": "release-18.30.6-2.3.1",
@@ -1153,7 +1159,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.30.6-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-07-29",
       "identifier": "release-18.29.1-2.3.1",
@@ -1164,7 +1170,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.29.1-2.3.1"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-07-27",
       "identifier": "release-18.29.1-2.3",
@@ -1175,7 +1181,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.29.1-2.3"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-07-17",
       "identifier": "release-18.28.3-2.3",
@@ -1186,7 +1192,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.28.3-2.3"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-07-15",
       "identifier": "release-18.27.3-2.3",
@@ -1197,7 +1203,7 @@
       "url": "https://github.com/Balackburn/YTLitePlus/releases/tag/v18.27.3-2.3"
     },
     {
-      "appID": "com.google.ios.youtube.ytliteplus",
+      "appID": "com.google.ios.youtube",
       "caption": "Update of YTLitePlus just got released!",
       "date": "2023-07-10",
       "identifier": "release-18.27.3-2.2.1",
