@@ -238,7 +238,7 @@ function openAppDetail(bundleId) {
   if (app.screenshotURLs && app.screenshotURLs.length > 0) {
     screenshotsSection.style.display = 'block';
     screenshotsScroll.innerHTML = app.screenshotURLs.map(url =>
-      `<img src="${url}" alt="Screenshot" class="screenshot-img" loading="lazy">`
+      `<img src="${url}" alt="Screenshot" class="screenshot-img" loading="lazy" onclick="event.stopPropagation();openLightbox('${url}')" style="cursor:pointer">`
     ).join('');
   } else {
     screenshotsSection.style.display = 'none';
@@ -377,6 +377,25 @@ function closeModal() {
   const overlay = document.getElementById('modal-overlay');
   overlay.classList.remove('active');
   document.body.style.overflow = '';
+}
+
+// ===== Image Lightbox =====
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const lb = document.getElementById('lightbox');
+  lb.classList.remove('active');
+  // Restore overflow only if modal isn't also open
+  const modal = document.getElementById('modal-overlay');
+  if (!modal.classList.contains('active')) {
+    document.body.style.overflow = '';
+  }
 }
 
 // ===== Copy Source URL =====
