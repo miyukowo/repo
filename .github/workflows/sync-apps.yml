@@ -162,6 +162,12 @@ jobs:
                 }
               });
               local.news = Array.from(newsMap.values())
+                .filter(item => {
+                  if (!item.date) return true;
+                  const sixMonthsAgo = new Date();
+                  sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+                  return new Date(item.date) >= sixMonthsAgo;
+                })
                 .sort((a, b) => new Date(b.date) - new Date(a.date));
 
               writeFileSync('apps.json', JSON.stringify(local, null, 2) + '\n');

@@ -319,7 +319,7 @@ function renderPermissions(app) {
 }
 
 // ===== Paginated Version History =====
-const VERSIONS_PER_PAGE = 3;
+const VERSIONS_PER_PAGE = 1;
 let currentVersionCount = VERSIONS_PER_PAGE;
 
 function renderVersionsPaginated(app) {
@@ -505,27 +505,41 @@ function setupNewsFilters(newsItems) {
 }
 
 // ===== Nav Section Toggle =====
+function switchToSection(target) {
+  // Update active state on nav links
+  document.querySelectorAll('.nav-link[data-nav]').forEach(l => l.classList.remove('active'));
+  const activeLink = document.querySelector(`.nav-link[data-nav="${target}"]`);
+  if (activeLink) activeLink.classList.add('active');
+
+  // Toggle sections
+  document.getElementById('apps').style.display = target === 'apps' ? '' : 'none';
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) heroSection.style.display = target === 'apps' ? '' : 'none';
+  const shortcutBanner = document.querySelector('.shortcut-banner');
+  if (shortcutBanner) shortcutBanner.style.display = target === 'apps' ? '' : 'none';
+  const newsSection = document.getElementById('news');
+  if (newsSection) newsSection.style.display = target === 'news' ? '' : 'none';
+
+  // Scroll to top of section
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function setupNavSections() {
   document.querySelectorAll('.nav-link[data-nav]').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const target = link.dataset.nav;
-
-      // Update active state
-      document.querySelectorAll('.nav-link[data-nav]').forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-
-      // Toggle sections
-      document.getElementById('apps').style.display = target === 'apps' ? '' : 'none';
-      const heroSection = document.querySelector('.hero');
-      if (heroSection) heroSection.style.display = target === 'apps' ? '' : 'none';
-      const newsSection = document.getElementById('news');
-      if (newsSection) newsSection.style.display = target === 'news' ? '' : 'none';
-
-      // Scroll to top of section
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      switchToSection(link.dataset.nav);
     });
   });
+
+  // Nav brand click → go back to Apps
+  const brand = document.querySelector('.nav-brand');
+  if (brand) {
+    brand.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchToSection('apps');
+    });
+  }
 }
 
 // ===== Initialize =====
@@ -584,10 +598,18 @@ async function init() {
 
     renderApps(sourceData.apps);
 
-    // News
+    // News — filter out items older than 6 months
     if (sourceData.news && sourceData.news.length > 0) {
+      const sixMonthsAgo = new Date();
+      sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+
+      const recentNews = sourceData.news.filter(item => {
+        if (!item.date) return true; // keep items without dates
+        return new Date(item.date) >= sixMonthsAgo;
+      });
+
       // Enrich news items with app info for filtering
-      const enrichedNews = sourceData.news.map(item => {
+      const enrichedNews = recentNews.map(item => {
         const linkedApp = item.appID ? sourceData.apps.find(a => a.bundleIdentifier === item.appID) : null;
         return {
           ...item,
@@ -597,10 +619,12 @@ async function init() {
         };
       });
 
-      document.getElementById('nav-news-link').style.display = '';
-      document.getElementById('news').style.display = 'none'; // hidden until clicked
-      setupNewsFilters(enrichedNews);
-      renderNews(enrichedNews);
+      if (enrichedNews.length > 0) {
+        document.getElementById('nav-news-link').style.display = '';
+        document.getElementById('news').style.display = 'none'; // hidden until clicked
+        setupNewsFilters(enrichedNews);
+        renderNews(enrichedNews);
+      }
     }
   } catch (error) {
     console.error('Failed to load apps:', error);

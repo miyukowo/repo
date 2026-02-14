@@ -1040,6 +1040,72 @@ body {
   font-family: 'SF Mono', 'Menlo', monospace;
 }
 
+/* ===== Shortcut Banner ===== */
+.shortcut-banner {
+  margin: -20px auto 30px;
+  max-width: 800px;
+  border-radius: var(--radius-lg);
+  padding: 0;
+  border-left: 4px solid var(--accent);
+}
+
+.shortcut-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  flex-wrap: wrap;
+}
+
+.shortcut-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.shortcut-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.shortcut-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.shortcut-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.shortcut-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.shortcut-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+}
+
 /* ===== News Section ===== */
 .news-section {
   padding: 120px 0 80px;
@@ -1348,6 +1414,16 @@ body {
     overflow-x: auto;
     flex-wrap: nowrap;
     padding-bottom: 4px;
+  }
+
+  .shortcut-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .shortcut-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
