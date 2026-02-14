@@ -1,4 +1,20 @@
+/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /apps.json
+  Cache-Control: no-cache, must-revalidate
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET
   Content-Type: application/json
+
+/style.css
+  Cache-Control: no-cache, must-revalidate
+
+/script.js
+  Cache-Control: no-cache, must-revalidate
+
+/img/*
+  Cache-Control: public, max-age=604800, immutable
