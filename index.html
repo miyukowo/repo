@@ -64,8 +64,9 @@
         <div class="sideload-grid" id="sideload-grid">
           <!-- Buttons rendered by JS -->
         </div>
-        <div style="text-align: center; margin-top: 14px;">
+        <div style="text-align: center; margin-top: 14px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
           <button class="copy-btn" id="copy-btn">📋 Copy Source URL</button>
+          <button class="copy-btn shortcut-scroll-btn" onclick="document.querySelector('.shortcut-banner').scrollIntoView({behavior:'smooth',block:'center'})">🔄 Auto-Refresh Shortcut</button>
         </div>
       </div>
     </div>
