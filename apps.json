@@ -664,7 +664,6 @@
       "caption": "YouTube Plus v5.2b4 - Fixed Shorts overlay issues",
       "date": "2025-11-05",
       "tintColor": "E36678",
-      "imageURL": "",
       "appID": "com.google.ios.youtube",
       "notify": false
     },
@@ -674,7 +673,6 @@
       "caption": "Infuse Plus v2.4.1 - Removed vibrancy effect of player toast, now toast follows system theme",
       "date": "2025-09-03",
       "tintColor": "FF8800",
-      "imageURL": "",
       "appID": "com.firecore.infuse",
       "notify": false
     },
@@ -684,7 +682,6 @@
       "caption": "Glow v1.3.1 - Faster video re-encoding by improved audio processing",
       "date": "2025-06-25",
       "tintColor": "B5DAFC",
-      "imageURL": "",
       "appID": "com.facebook.Facebook",
       "notify": false
     },
@@ -694,7 +691,6 @@
       "caption": "- Initial release",
       "date": "2025-06-14",
       "tintColor": "AF38EB",
-      "imageURL": "",
       "appID": "com.facebook.Messenger",
       "notify": false
     },
@@ -704,7 +700,6 @@
       "caption": "YouTube Music Ultimate v2.3.1 - Fixed downloads tab not working",
       "date": "2025-01-09",
       "tintColor": "FF0033",
-      "imageURL": "",
       "appID": "com.google.ios.youtubemusic",
       "notify": false
     },
@@ -725,7 +720,6 @@
       "caption": "Current YouTube IPA: \"19.34.2\"  \r Current YTLite Version: \"5.0.1\"  \r",
       "date": "2024-09-03",
       "tintColor": "e22a41",
-      "imageURL": "",
       "appID": "com.google.ios.youtube.ytliteplus",
       "notify": false
     },

@@ -112,7 +112,6 @@ jobs:
                 : `${app.name} has been updated to version ${latest.version}.`,
               date: latest.date || '',
               tintColor: (app.tintColor || '').replace('#', ''),
-              imageURL: '',
               appID: app.bundleIdentifier,
               notify: false
             }];
