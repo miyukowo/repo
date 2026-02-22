@@ -44,6 +44,13 @@ jobs:
               remap: {
                 'com.google.ios.youtube': 'com.google.ios.youtube.ytliteplus'
               }
+            },
+            {
+              url: 'https://raw.githubusercontent.com/miyukowo/AltStore/refs/heads/main/repo.json',
+              apps: [
+                // Add your self-hosted app bundle IDs here as you add them to miyukowo/AltStore
+                // e.g. 'com.example.myapp'
+              ]
             }
           ];
 
