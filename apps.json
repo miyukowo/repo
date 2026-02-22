@@ -747,7 +747,6 @@
       "caption": "New app added to miyukowo's repo",
       "date": "2026-02-23T04:07",
       "tintColor": "#7f7f7f",
-      "imageURL": "",
       "notify": false,
       "url": "https://example.com/new_feature_details",
       "appID": "xyz.phim4k.ios"
@@ -767,7 +766,6 @@
       "caption": "New app added to miyukowo's repo",
       "date": "2026-02-13T21:19",
       "tintColor": "#00961e",
-      "imageURL": "",
       "notify": false,
       "url": "https://example.com/new_feature_details",
       "appID": "com.spotify.client"
