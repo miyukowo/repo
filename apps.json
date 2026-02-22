@@ -664,13 +664,6 @@
       "localizedDescription": "This tweak makes Spotify think you have a Premium subscription, granting free listening, just like Spotilife, and provides some additional features like custom lyrics.\n\n---\n• Custom Lyrics Support\nSpotify 9.1.22 - Full custom lyrics functionality is available with the following provider:\n- Musixmatch ✅ (Currently enabled)\n\n• Note:\nOther providers (Genius, LRCLIB, PetitLyrics) are available in the code but disabled in build.*\n\n• Difference between non-patched and patched IPA?\nUsing the patched IPA should fix any widgets issues had when sideloading with paid certs (with app groups entitlement). This fix does not work with free sideloading methods such as AltStore/Sideloadly, and TrollStore users do not need to use a patched IPA.",
       "iconURL": "https://raw.githubusercontent.com/miyukowo/AltStore/refs/heads/main/img/spotify/spotify.png",
       "tintColor": "04fc94",
-      "screenshotURLs": [
-        {
-          "imageURL": "https://github.com/Meeep1/EeveeSpotifyRevivedPublic/raw/main/Images/banner.png?",
-          "width": 2880,
-          "height": 1080
-        }
-      ],
       "versions": [
         {
           "version": "9.1.22",
@@ -721,7 +714,6 @@
       "localizedDescription": "Phim4K mang cả rạp phim tới nhà của bạn. Kho phim đồ sộ, không quảng cáo, UI thân thiện.\n\n---\nVì sao chọn Phim4K?\n\n• Server siêu tốc\nTối ưu tuyến truyền, CDN toàn cầu. Phát là chạy.\n\n• Chất lượng 4K UHD\nNguồn phim rõ nét, hỗ trợ HDR khi có.\n\n• Không quảng cáo\nTập trung 100% vào nội dung bạn yêu thích.\n\n• Giao diện thân thiện\nDễ dùng, tìm phim nhanh, gợi ý thông minh.",
       "iconURL": "https://raw.githubusercontent.com/miyukowo/AltStore/refs/heads/main/img/phim4k/phim4k.jpg",
       "tintColor": "7f7f7f",
-      "screenshotURLs": [],
       "versions": [
         {
           "version": "1.9.7",
