@@ -659,6 +659,28 @@
   ],
   "news": [
     {
+      "title": "Added Phim 4K to miyukowo's repo!",
+      "identifier": "news_6darrnytcr",
+      "caption": "New app added to miyukowo's repo",
+      "date": "2026-02-23T04:07",
+      "tintColor": "#7f7f7f",
+      "imageURL": "",
+      "notify": false,
+      "url": "https://example.com/new_feature_details",
+      "appID": "xyz.phim4k.ios"
+    },
+    {
+      "title": "Added EeveeSpotify Revived to miyukowo's repo!",
+      "identifier": "news_fblnh9o2ks",
+      "caption": "New app added to miyukowo's repo",
+      "date": "2026-02-13T21:19",
+      "tintColor": "#00961e",
+      "imageURL": "",
+      "notify": false,
+      "url": "https://example.com/new_feature_details",
+      "appID": "com.spotify.client"
+    },
+    {
       "title": "YouTube Plus v20.42.3 Released",
       "identifier": "com-google-ios-youtube-20-42-3",
       "caption": "YouTube Plus v5.2b4 - Fixed Shorts overlay issues",
