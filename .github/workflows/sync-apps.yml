@@ -125,10 +125,16 @@ jobs:
           }
 
           async function main() {
-            // Load current apps.json to preserve repo metadata
+            // Load current apps.json to preserve repo metadata and version history
             const local = JSON.parse(readFileSync('apps.json', 'utf8'));
             const updatedApps = [];
             const allNews = [];
+
+            // Build a lookup of existing versions keyed by bundleIdentifier
+            const existingVersionsMap = new Map();
+            (local.apps || []).forEach(app => {
+              existingVersionsMap.set(app.bundleIdentifier, app.versions || []);
+            });
 
             for (const source of SOURCES) {
               console.log(`Fetching: ${source.url}`);
@@ -139,7 +145,17 @@ jobs:
                 const app = apps.find(a => a.bundleIdentifier === bundleId);
                 if (app) {
                   const normalized = normalizeApp(app, source.remap);
-                  console.log(`  ✓ ${normalized.name} (${normalized.bundleIdentifier}) v${normalized.versions[0]?.version || '?'}`);
+
+                  // Merge version history: prepend any versions not already stored
+                  const existingVersions = existingVersionsMap.get(normalized.bundleIdentifier) || [];
+                  const existingVersionStrings = new Set(existingVersions.map(v => v.version));
+                  const newVersions = normalized.versions.filter(v => !existingVersionStrings.has(v.version));
+                  if (newVersions.length > 0) {
+                    console.log(`  + ${newVersions.length} new version(s) for ${normalized.name}`);
+                  }
+                  normalized.versions = [...newVersions, ...existingVersions];
+
+                  console.log(`  ✓ ${normalized.name} (${normalized.bundleIdentifier}) — ${normalized.versions.length} version(s) total`);
                   updatedApps.push(normalized);
 
                   // Generate news from latest version
