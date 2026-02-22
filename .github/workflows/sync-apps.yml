@@ -64,8 +64,9 @@ jobs:
             // Normalize to our standard format
             const bundleId = remap?.[app.bundleIdentifier] || app.bundleIdentifier;
             
-            // Normalize screenshots field name (some use 'screenshots', others 'screenshotURLs')
-            const screenshots = app.screenshotURLs || app.screenshots || [];
+            // Normalize screenshots — filter out null/empty entries, omit field if none remain
+            const rawScreenshots = app.screenshotURLs || app.screenshots || [];
+            const screenshots = rawScreenshots.filter(url => typeof url === 'string' && url.trim() !== '');
             
             // Normalize versions
             let versions = app.versions || [];
@@ -97,6 +98,11 @@ jobs:
               screenshotURLs: screenshots,
               versions
             };
+
+            // Omit screenshotURLs entirely if empty (some clients handle missing better than [])
+            if (screenshots.length === 0) {
+              delete result.screenshotURLs;
+            }
 
             // Preserve appPermissions if present
             if (app.appPermissions) {
