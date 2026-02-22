@@ -141,29 +141,29 @@ jobs:
               const data = await fetchJSON(source.url);
               const apps = data.apps || [];
 
-              for (const bundleId of source.apps) {
-                const app = apps.find(a => a.bundleIdentifier === bundleId);
-                if (app) {
-                  const normalized = normalizeApp(app, source.remap);
+              // If source.apps is empty, fetch ALL apps from that source; otherwise filter by listed IDs
+              const appsToProcess = source.apps.length > 0
+                ? source.apps.map(id => apps.find(a => a.bundleIdentifier === id)).filter(Boolean)
+                : apps;
 
-                  // Merge version history: prepend any versions not already stored
-                  const existingVersions = existingVersionsMap.get(normalized.bundleIdentifier) || [];
-                  const existingVersionStrings = new Set(existingVersions.map(v => v.version));
-                  const newVersions = normalized.versions.filter(v => !existingVersionStrings.has(v.version));
-                  if (newVersions.length > 0) {
-                    console.log(`  + ${newVersions.length} new version(s) for ${normalized.name}`);
-                  }
-                  normalized.versions = [...newVersions, ...existingVersions];
+              for (const app of appsToProcess) {
+                if (!app) continue;
+                const normalized = normalizeApp(app, source.remap);
 
-                  console.log(`  ✓ ${normalized.name} (${normalized.bundleIdentifier}) — ${normalized.versions.length} version(s) total`);
-                  updatedApps.push(normalized);
-
-                  // Generate news from latest version
-                  const news = generateNewsFromApp(normalized);
-                  allNews.push(...news);
-                } else {
-                  console.log(`  ✗ ${bundleId} not found in source`);
+                // Merge version history: prepend any versions not already stored
+                const existingVersions = existingVersionsMap.get(normalized.bundleIdentifier) || [];
+                const existingVersionStrings = new Set(existingVersions.map(v => v.version));
+                const newVersions = normalized.versions.filter(v => !existingVersionStrings.has(v.version));
+                if (newVersions.length > 0) {
+                  console.log(`  + ${newVersions.length} new version(s) for ${normalized.name}`);
                 }
+                normalized.versions = [...newVersions, ...existingVersions];
+
+                console.log(`  ✓ ${normalized.name} (${normalized.bundleIdentifier}) — ${normalized.versions.length} version(s) total`);
+                updatedApps.push(normalized);
+                // Generate news from latest version
+                const news = generateNewsFromApp(normalized);
+                allNews.push(...news);
               }
 
               // Also sync any top-level news from the source
