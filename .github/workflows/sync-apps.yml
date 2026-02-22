@@ -117,7 +117,7 @@ jobs:
             if (!app.versions || app.versions.length === 0) return [];
 
             const latest = app.versions[0];
-            return [{
+            return [normalizeNews({
               title: `${app.name} v${latest.version} Released`,
               identifier: `${app.bundleIdentifier}-${latest.version}`.replace(/\./g, '-'),
               caption: latest.localizedDescription
@@ -127,7 +127,20 @@ jobs:
               tintColor: (app.tintColor || '').replace('#', ''),
               appID: app.bundleIdentifier,
               notify: false
-            }];
+            })];
+          }
+
+          function normalizeNews(item) {
+            const result = { ...item };
+            // Omit imageURL if empty or null — Feather expects String, not null
+            if (!result.imageURL || typeof result.imageURL !== 'string' || result.imageURL.trim() === '') {
+              delete result.imageURL;
+            }
+            // Omit url if empty
+            if (!result.url || typeof result.url !== 'string' || result.url.trim() === '') {
+              delete result.url;
+            }
+            return result;
           }
 
           async function main() {
@@ -175,7 +188,7 @@ jobs:
               // Also sync any top-level news from the source
               if (data.news && Array.isArray(data.news)) {
                 console.log(`  📰 Found ${data.news.length} news items from source`);
-                allNews.push(...data.news);
+                allNews.push(...data.news.map(normalizeNews));
               }
             }
 
