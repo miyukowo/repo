@@ -123,7 +123,7 @@
       }
     },
     {
-      "name": "Infuse Plus",
+      "name": "Infuse Plus (iOS18+)",
       "bundleIdentifier": "com.firecore.infuse",
       "developerName": "dvntm",
       "subtitle": "Enhancer for Infuse app",
@@ -139,6 +139,14 @@
         "https://raw.githubusercontent.com/dayanch96/InfusePlus/refs/heads/main/Resources/screenshot6.png"
       ],
       "versions": [
+        {
+          "version": "8.3.9",
+          "minOSVersion": "18.0",
+          "date": "2026-02-27",
+          "size": 74592875,
+          "downloadURL": "https://github.com/dvntm0/AltStore/releases/download/0.0.1/infp_2.5+8.3.9.ipa",
+          "localizedDescription": "Infuse Plus v2.5\n\n- Tweak core has been fully rewritten\n- Settings have been optimized for iPad\n- Improved gesture interaction\n- Fixed an issue with the loop button visibility\n- Added overlay lock feature\n- Added vertical and horizontal video mirroring\n- Added an option to mute the player only\n- Added support for Infuse 8.2.5 and later"
+        },
         {
           "version": "8.2.4",
           "minOSVersion": "16.0",
@@ -742,6 +750,15 @@
   ],
   "news": [
     {
+      "title": "Infuse Plus (iOS18+) v8.3.9 Released",
+      "identifier": "com-firecore-infuse-8-3-9",
+      "caption": "Infuse Plus v2.5 - Tweak core has been fully rewritten",
+      "date": "2026-02-27",
+      "tintColor": "FF8800",
+      "appID": "com.firecore.infuse",
+      "notify": false
+    },
+    {
       "title": "Added Phim 4K to miyukowo's repo!",
       "identifier": "news_6darrnytcr",
       "caption": "New app added to miyukowo's repo",
@@ -786,15 +803,6 @@
       "date": "2025-11-05",
       "tintColor": "E36678",
       "appID": "com.google.ios.youtube",
-      "notify": false
-    },
-    {
-      "title": "Infuse Plus v8.2.4 Released",
-      "identifier": "com-firecore-infuse-8-2-4",
-      "caption": "Infuse Plus v2.4.1 - Removed vibrancy effect of player toast, now toast follows system theme",
-      "date": "2025-09-03",
-      "tintColor": "FF8800",
-      "appID": "com.firecore.infuse",
       "notify": false
     }
   ]
