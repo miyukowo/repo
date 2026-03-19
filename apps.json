@@ -72,7 +72,7 @@
       }
     },
     {
-      "name": "YouTube Music Ultimate",
+      "name": "YouTube Music Ultimate (iOS16+)",
       "bundleIdentifier": "com.google.ios.youtubemusic",
       "developerName": "dvntm",
       "subtitle": "The best enhancer for YouTube Music on iOS",
@@ -87,6 +87,22 @@
         "https://raw.githubusercontent.com/dayanch96/YTMusicUltimate/refs/heads/main/Resources/scrn5.png"
       ],
       "versions": [
+        {
+          "version": "9.11.2",
+          "minOSVersion": "16.0",
+          "date": "2026-03-19",
+          "size": 93628401,
+          "downloadURL": "https://github.com/dvntm0/AltStore/releases/download/0.0.1/ytmu_9.11.2.ipa",
+          "localizedDescription": "YouTube Music Ultimate v2.4.1\n\n- Fixes login issues\n- Adds cairo-style downloading icon"
+        },
+        {
+          "version": "7.02.2",
+          "minOSVersion": "14.0",
+          "date": "2026-03-19",
+          "size": 64370359,
+          "downloadURL": "https://github.com/dvntm0/AltStore/releases/download/0.0.1/ytmu_7.02.2.ipa",
+          "localizedDescription": "YouTube Music Ultimate v2.4.1\n\n- Fixes login issues\n- Adds cairo-style downloading icon"
+        },
         {
           "version": "7.33.2",
           "minOSVersion": "15.0",
@@ -757,6 +773,15 @@
     }
   ],
   "news": [
+    {
+      "title": "YouTube Music Ultimate (iOS16+) v9.11.2 Released",
+      "identifier": "com-google-ios-youtubemusic-9-11-2",
+      "caption": "YouTube Music Ultimate v2.4.1 - Fixes login issues",
+      "date": "2026-03-19",
+      "tintColor": "FF0033",
+      "appID": "com.google.ios.youtubemusic",
+      "notify": false
+    },
     {
       "title": "Infuse Plus (iOS18+) v7.8.4 Released",
       "identifier": "com-firecore-infuse-7-8-4",
