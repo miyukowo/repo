@@ -33,6 +33,14 @@
       ],
       "versions": [
         {
+          "version": "21.16.2",
+          "minOSVersion": "16.0",
+          "date": "2026-04-23",
+          "size": 123012387,
+          "downloadURL": "https://github.com/dvntm0/AltStore/releases/download/0.0.1/ytp_5.2.1+21.16.2.ipa",
+          "localizedDescription": "YouTube Plus v5.2.1\n\nIMPORTANT: Starting from this version, YTPlus requires an active Patreon subscription for full access. If you prefer free usage, please stay on version 5.2b4.\n\nFIXED:\n - Fixed settings not updating correctly\n - Fixed crashes when navigating to certain cells from search results\n - Fixed incorrect playback speed display in controls\n - Fixed visual glitch in live video ring\n\nIMPROVED:\n - Improved SponsorBlock skip logic\n - Improved swipe-to-seek with real-time timestamp display\n - Improved Control Center skip forward/backward actions\n\nADDED:\n - Added option to hide the 'More videos' button in the overlay"
+        },
+        {
           "version": "21.15.5",
           "minOSVersion": "16.0",
           "date": "2026-04-20",
@@ -799,6 +807,15 @@
   ],
   "news": [
     {
+      "title": "YouTube Plus (iOS16+) v21.16.2 Released",
+      "identifier": "com-google-ios-youtube-21-16-2",
+      "caption": "YouTube Plus v5.2.1 IMPORTANT: Starting from this version, YTPlus requires an active Patreon subscription for full access. If you prefer free usage, please stay on version 5.2b4.",
+      "date": "2026-04-23",
+      "tintColor": "E36678",
+      "appID": "com.google.ios.youtube",
+      "notify": false
+    },
+    {
       "title": "From version 5.2, YTPlus requires a subscription",
       "identifier": "News1",
       "caption": "Starting from version 5.2, YTPlus requires a Patreon subscription (activation in YTPlus settings).\n\nThis subscription applies strictly to YTPlus tweak features only and is not affiliated with YouTube or any other tweaks.\n\nThe last free version is 5.2b4.",
@@ -807,15 +824,6 @@
       "url": "https://patreon.com/dayanch96",
       "date": "2026-04-22",
       "notify": true
-    },
-    {
-      "title": "YouTube Plus (iOS16+) v21.15.5 Released",
-      "identifier": "com-google-ios-youtube-21-15-5",
-      "caption": "YouTube Plus v5.2 ADDED:",
-      "date": "2026-04-20",
-      "tintColor": "E36678",
-      "appID": "com.google.ios.youtube",
-      "notify": false
     },
     {
       "title": "YouTube Music Ultimate (iOS16+) v9.11.2 Released",
